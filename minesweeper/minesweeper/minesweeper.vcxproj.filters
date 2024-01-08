@@ -18,9 +18,15 @@
     <ClCompile Include="mainform.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="cell.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainform.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="cell.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
