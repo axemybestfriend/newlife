@@ -69,27 +69,9 @@ namespace minesweeper {
 			for (int i = 0; i < 10; i++) {
 				for (int j = 0; j < 10; j++) {
 					this->Controls->Add(arr[i][j]);
-					arr[i][j]->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &mainform::cell_MouseDown);
 				}
 			}
-
 		}
 #pragma endregion
-	public: System::Void cell_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		cell^ c = dynamic_cast<cell^>(sender);
-		if (e->Button == System::Windows::Forms::MouseButtons::Left) {
-
-		}
-		else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
-			if (c->getFlag() == false)
-			{
-				c->setFlag(true);
-			}
-			else
-			{
-				c->setFlag(false);
-			}
-		}
-	}
 	};
 }

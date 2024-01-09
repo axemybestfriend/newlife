@@ -13,6 +13,8 @@ private:
 
 	uint16_t^ countofBomb;
 
+	System::Void cell_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+
 public:
 	field();
 	array<array<cell^>^>^ generatefield(uint16_t x, uint16_t y, uint16_t countofBomb);
