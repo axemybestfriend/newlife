@@ -40,9 +40,7 @@ namespace minesweeper {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container^ components;
-
-
+		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -58,7 +56,7 @@ namespace minesweeper {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		}
 #pragma endregion
-	private: System::Void c_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-};
+
+
+	};
 }
