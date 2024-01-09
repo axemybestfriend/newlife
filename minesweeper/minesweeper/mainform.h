@@ -49,21 +49,47 @@ namespace minesweeper {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			cell^ c = gcnew cell;
-			c->setFlag(true);
-			this->Controls->Add(c);
-
-			
-
-
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(516, 539);
-			this->Text = L"mainform";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->SuspendLayout();
+			// 
+			// mainform
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(500, 500);
+			this->Name = L"mainform";
+			this->Text = L"mainform";
+			this->ResumeLayout(false);
+			array<array<cell^>^>^ arr = gcnew array<array<cell^>^>(10);
+			for (int i = 0; i < 10; i++) {
+				arr[i] = gcnew array<cell^>(10);
+				for (int j = 0; j < 10; j++) {
+					arr[i][j] = gcnew cell();
+					arr[i][j]->Location = System::Drawing::Point(i*40, j*40);
+					this->Controls->Add(arr[i][j]);
+					arr[i][j]->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &mainform::cell_MouseDown);
+
+				}
+			}
 		}
 #pragma endregion
+	private: System::Void cell_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		cell^ c = dynamic_cast<cell^>(sender);
+		if (e->Button == System::Windows::Forms::MouseButtons::Left) {
+
+		}
+		else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
+			if (c->getFlag() == false)
+			{
 
 
+
+			}
+			else
+			{
+
+
+			}
+		}
+	}
 	};
 }
