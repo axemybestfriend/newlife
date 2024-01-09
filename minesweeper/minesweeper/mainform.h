@@ -1,5 +1,6 @@
 #pragma once
 #include "cell.h"
+#include <windows.h> 
 
 namespace minesweeper {
 
@@ -35,12 +36,13 @@ namespace minesweeper {
 				delete components;
 			}
 		}
-
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
+
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -50,11 +52,13 @@ namespace minesweeper {
 		void InitializeComponent(void)
 		{
 			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(400,300);
+			this->Size = System::Drawing::Size(516, 539);
 			this->Text = L"mainform";
 			this->Padding = System::Windows::Forms::Padding(0);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		}
 #pragma endregion
-	};
+	private: System::Void c_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
