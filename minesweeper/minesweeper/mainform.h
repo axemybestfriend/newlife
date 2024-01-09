@@ -64,7 +64,7 @@ namespace minesweeper {
 				arr[i] = gcnew array<cell^>(10);
 				for (int j = 0; j < 10; j++) {
 					arr[i][j] = gcnew cell();
-					arr[i][j]->Location = System::Drawing::Point(i*40, j*40);
+					arr[i][j]->Location = System::Drawing::Point(i * cell::getCellSize(), j * cell::getCellSize());
 					this->Controls->Add(arr[i][j]);
 					arr[i][j]->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &mainform::cell_MouseDown);
 
@@ -80,14 +80,11 @@ namespace minesweeper {
 		else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
 			if (c->getFlag() == false)
 			{
-
-
-
+				c->setFlag(true);
 			}
 			else
 			{
-
-
+				c->setFlag(false);
 			}
 		}
 	}

@@ -5,7 +5,7 @@
 ref class cell : System::Windows::Forms::Button
 {
 private:
-	static uint16_t CellSize = 40;
+	static uint16_t CellSize = 50;
 
 	bool^ flag;
 
