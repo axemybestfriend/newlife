@@ -1,9 +1,12 @@
 #pragma once
 #include <iostream>
+#include "resources.h"
 
 ref class cell : System::Windows::Forms::Button
 {
 private:
+	static uint16_t CellSize = 40;
+
 	bool^ flag;
 
 	bool^ mine;
@@ -20,9 +23,13 @@ public:
 	
 	void setMine(bool mine);
 
-	void setFlag(bool mine);
+	void setFlag(bool flag);
 
 	void setCountMineAround(uint16_t countMineAround);
+
+	static void setCellSize(uint16_t);
+
+	static uint16_t getCellSize();
 
 	bool getFlag();
 
