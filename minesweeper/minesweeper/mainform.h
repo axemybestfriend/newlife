@@ -22,9 +22,14 @@ namespace minesweeper {
 		mainform(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
+			field^ a = gcnew field();
+			array<array<cell^>^>^ arr = a->generatefield(10, 10, 10);
+
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 10; j++) {
+					this->Controls->Add(arr[i][j]);
+				}
+			}
 		}
 
 	protected:
@@ -61,16 +66,6 @@ namespace minesweeper {
 			this->Name = L"mainform";
 			this->Text = L"mainform";
 			this->ResumeLayout(false);
-
-
-			field^ a = gcnew field();
-			array<array<cell^>^>^ arr = a->generatefield(10, 10, 10);
-
-			for (int i = 0; i < 10; i++) {
-				for (int j = 0; j < 10; j++) {
-					this->Controls->Add(arr[i][j]);
-				}
-			}
 		}
 #pragma endregion
 	};

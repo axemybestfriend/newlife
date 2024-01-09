@@ -4,7 +4,15 @@
 
 field::field()
 {
+	x = gcnew uint16_t;
+	y = gcnew uint16_t;
+	countofBomb = gcnew uint16_t;
+}
 
+field::~field()
+{
+	delete[] ArrCell;
+	delete x, y, countofBomb;
 }
 
 array<array<cell^>^>^ field::generatefield(uint16_t x, uint16_t y, uint16_t countofBomb)
