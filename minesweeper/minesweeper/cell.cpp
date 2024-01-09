@@ -30,7 +30,46 @@ cell::~cell()
 
 void cell::hide()
 {
-    throw gcnew System::NotImplementedException();
+    if (*(this->isHide) == true) {
+        srand(time(NULL));
+        *countMineAround = rand() % 9;
+        *(this->isHide) = false;
+        this->Enabled = false;
+        if (*mine == true) 
+            this->BackgroundImage = System::Drawing::Image::FromFile(emptyCell);
+        else 
+        {
+            switch (*countMineAround) {
+            case 0:
+                this->BackgroundImage = System::Drawing::Image::FromFile(emptyCell);
+                break;
+            case 1:
+                this->BackgroundImage = System::Drawing::Image::FromFile(one);
+                break;
+            case 2:
+                this->BackgroundImage = System::Drawing::Image::FromFile(two);
+                break;
+            case 3:
+                this->BackgroundImage = System::Drawing::Image::FromFile(three);
+                break;
+            case 4:
+                this->BackgroundImage = System::Drawing::Image::FromFile(four);
+                break;
+            case 5:
+                this->BackgroundImage = System::Drawing::Image::FromFile(five);
+                break;
+            case 6:
+                this->BackgroundImage = System::Drawing::Image::FromFile(six);
+                break;
+            case 7:
+                this->BackgroundImage = System::Drawing::Image::FromFile(seven);
+                break;
+            case 8:
+                this->BackgroundImage = System::Drawing::Image::FromFile(eight);
+                break;
+            }
+        }
+    }
 }
 
 void cell::setMine(bool mine) {
