@@ -134,6 +134,11 @@
     </ClInclude>
     <ClInclude Include="resources.h" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="mainform.resx">
+      <DependentUpon>mainform.h</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
