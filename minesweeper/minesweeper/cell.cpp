@@ -14,7 +14,7 @@ cell::cell() : System::Windows::Forms::Button()
     this->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
     this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
     this->Size = System::Drawing::Size(CellSize, CellSize);
-    this->BackgroundImage = System::Drawing::Image::FromFile(cellImagePath);
+    this->BackgroundImage = resources::closedCell();
 }
 
 cell::cell(bool mine)
@@ -35,37 +35,37 @@ void cell::hide()
         *countMineAround = rand() % 9;
         *(this->isHide) = false;
         this->Enabled = false;
-        if (*mine == true) 
-            this->BackgroundImage = System::Drawing::Image::FromFile(emptyCell);
+        if (*mine == true)
+            this->BackgroundImage = resources::emptyCell();
         else 
         {
             switch (*countMineAround) {
             case 0:
-                this->BackgroundImage = System::Drawing::Image::FromFile(emptyCell);
+                this->BackgroundImage = resources::emptyCell();
                 break;
             case 1:
-                this->BackgroundImage = System::Drawing::Image::FromFile(one);
+                this->BackgroundImage = resources::one();
                 break;
             case 2:
-                this->BackgroundImage = System::Drawing::Image::FromFile(two);
+                this->BackgroundImage = resources::two();
                 break;
             case 3:
-                this->BackgroundImage = System::Drawing::Image::FromFile(three);
+                this->BackgroundImage = resources::three();
                 break;
             case 4:
-                this->BackgroundImage = System::Drawing::Image::FromFile(four);
+                this->BackgroundImage = resources::four();
                 break;
             case 5:
-                this->BackgroundImage = System::Drawing::Image::FromFile(five);
+                this->BackgroundImage = resources::five();
                 break;
             case 6:
-                this->BackgroundImage = System::Drawing::Image::FromFile(six);
+                this->BackgroundImage = resources::six();
                 break;
             case 7:
-                this->BackgroundImage = System::Drawing::Image::FromFile(seven);
+                this->BackgroundImage = resources::seven();
                 break;
             case 8:
-                this->BackgroundImage = System::Drawing::Image::FromFile(eight);
+                this->BackgroundImage = resources::eight();
                 break;
             }
         }
@@ -79,8 +79,8 @@ void cell::setMine(bool mine) {
 void cell::setFlag(bool flag)
 {
     *(this->flag) = flag;
-    if (flag == true) this->BackgroundImage = System::Drawing::Image::FromFile(flagImagePath);
-    else this->BackgroundImage = System::Drawing::Image::FromFile(cellImagePath);
+    if (flag == true) this->BackgroundImage = resources::cellWithFlag();
+    else this->BackgroundImage = resources::closedCell();
 }
 
 void cell::setCountMineAround(uint16_t countMineAround)
