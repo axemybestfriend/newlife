@@ -1,5 +1,7 @@
 #pragma once
+
 #include "cell.h"
+#include "field.h"
 #include <windows.h> 
 
 namespace minesweeper {
@@ -59,20 +61,21 @@ namespace minesweeper {
 			this->Name = L"mainform";
 			this->Text = L"mainform";
 			this->ResumeLayout(false);
-			array<array<cell^>^>^ arr = gcnew array<array<cell^>^>(10);
+
+
+			field^ a = gcnew field();
+			array<array<cell^>^>^ arr = a->generatefield(10, 10, 10);
+
 			for (int i = 0; i < 10; i++) {
-				arr[i] = gcnew array<cell^>(10);
 				for (int j = 0; j < 10; j++) {
-					arr[i][j] = gcnew cell();
-					arr[i][j]->Location = System::Drawing::Point(i * cell::getCellSize(), j * cell::getCellSize());
 					this->Controls->Add(arr[i][j]);
 					arr[i][j]->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &mainform::cell_MouseDown);
-
 				}
 			}
+
 		}
 #pragma endregion
-	private: System::Void cell_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+	public: System::Void cell_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 		cell^ c = dynamic_cast<cell^>(sender);
 		if (e->Button == System::Windows::Forms::MouseButtons::Left) {
 
