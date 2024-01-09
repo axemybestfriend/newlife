@@ -40,6 +40,8 @@ void cell::setMine(bool mine) {
 void cell::setFlag(bool flag)
 {
     *(this->flag) = flag;
+    if (flag == true) this->BackgroundImage = System::Drawing::Image::FromFile(flagImagePath);
+    else this->BackgroundImage = System::Drawing::Image::FromFile(cellImagePath);
 }
 
 void cell::setCountMineAround(uint16_t countMineAround)

@@ -49,6 +49,13 @@ namespace minesweeper {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			cell^ c = gcnew cell;
+			c->setFlag(true);
+			this->Controls->Add(c);
+
+			
+
+
 			this->components = gcnew System::ComponentModel::Container();
 			this->Size = System::Drawing::Size(516, 539);
 			this->Text = L"mainform";
