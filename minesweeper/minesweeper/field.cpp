@@ -31,6 +31,40 @@ array<array<cell^>^>^ field::generatefield(uint16_t x, uint16_t y, uint16_t coun
     return ArrCell;
 }
 
+
+void field::setx(uint16_t x) 
+{
+	*(this->x) = x;
+}
+
+void field::sety(uint16_t y)
+{
+	*(this->y) = y;
+
+}
+
+void field::setcpuntofBonb(uint16_t countobBomb) 
+{
+	*(this->countofBomb) = countobBomb;
+}
+
+uint16_t field::getx()
+{
+	return *x;
+
+}
+
+uint16_t field::gety()
+{
+	return *y;
+}
+
+uint16_t field::getcountofBomb()
+{
+	return *countofBomb;
+}
+
+
 System::Void field::cell_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
 {
 	cell^ c = dynamic_cast<cell^>(sender);
