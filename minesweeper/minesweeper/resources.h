@@ -14,6 +14,9 @@ private:
 	static System::Drawing::Image^ Six = System::Drawing::Image::FromFile("image\\six.png");
 	static System::Drawing::Image^ Seven = System::Drawing::Image::FromFile("image\\seven.png");
 	static System::Drawing::Image^ Eight = System::Drawing::Image::FromFile("image\\eight.png");
+	static System::Drawing::Image^ Bomb = System::Drawing::Image::FromFile("image\\bomb.png");
+	static System::Drawing::Image^ RedBomb = System::Drawing::Image::FromFile("image\\redBomb.png");
+
 	resources() {}
 
 public:
@@ -28,6 +31,9 @@ public:
 	static System::Drawing::Image^ six() { return Six; }
 	static System::Drawing::Image^ seven() { return Seven; }
 	static System::Drawing::Image^ eight() { return Eight; }
+	static System::Drawing::Image^ bomb() { return Bomb; }
+	static System::Drawing::Image^ redBomb() { return RedBomb; }
+
 
 };
 
