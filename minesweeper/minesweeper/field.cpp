@@ -55,15 +55,15 @@ void field::generateBomb(cell^ btn) {
 		while (true)
 		{
 			bool flag = true;
-			randomI = rand() % *y;
-			randomJ = rand() % *x;
+			randomI = rand() % *x;
+			randomJ = rand() % *y;
 			if ((this->ArrCell[randomI][randomJ]->getMine() == true) || (randomI == banCellX && randomJ == banCellY)) { continue; }
 			break;
 		}
 		this->ArrCell[randomI][randomJ]->setMine(true);
 		for (int i = randomI - 1; i <= randomI + 1; i++) {
 			for (int j = randomJ - 1; j <= randomJ + 1; j++) {
-				if (i < 0 || j < 0 || i >= *(this->y) || j >= *(this->x)) continue;
+				if (i < 0 || j < 0 || i >= *(this->x) || j >= *(this->y)) continue;
 				else ArrCell[i][j]->setCountMineAround(ArrCell[i][j]->getCountMineAround() + 1);
 			}
 		}

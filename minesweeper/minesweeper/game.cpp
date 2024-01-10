@@ -2,9 +2,9 @@
 #include "field.h"
 
 static struct {
-	int fieldHeight = 10;
-	int fieldWidth = 10;
-	int countOfBombs = 99;
+	int fieldHeight = 15;
+	int fieldWidth = 5;
+	int countOfBombs = 20;
 } gamemodeNormal;
 
 void game::outputField()
