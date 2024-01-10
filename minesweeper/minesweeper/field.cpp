@@ -40,9 +40,12 @@ array<array<cell^>^>^ field::generatefield(uint16_t x, uint16_t y, uint16_t coun
 
 
 
-void field::generateBomb() {
+void field::generateBomb(cell^ btn) {
 
 	int count = getcountofBomb();
+	int banCellX = btn->Location.X / btn->getCellSize();
+	int banCellY = btn->Location.Y / btn->getCellSize();
+
 
 	srand(time(NULL));
 
@@ -52,12 +55,18 @@ void field::generateBomb() {
 		while (true)
 		{
 			bool flag = true;
-			randomI = rand() % *x;
-			randomJ = rand() % *y;
-			if (this->ArrCell[randomI][randomJ]->getMine() == true) { continue; }
+			randomI = rand() % *y;
+			randomJ = rand() % *x;
+			if ((this->ArrCell[randomI][randomJ]->getMine() == true) || (randomI == banCellX && randomJ == banCellY)) { continue; }
 			break;
 		}
 		this->ArrCell[randomI][randomJ]->setMine(true);
+		for (int i = randomI - 1; i <= randomI + 1; i++) {
+			for (int j = randomJ - 1; j <= randomJ + 1; j++) {
+				if (i < 0 || j < 0 || i >= *(this->y) || j >= *(this->x)) continue;
+				else ArrCell[i][j]->setCountMineAround(ArrCell[i][j]->getCountMineAround() + 1);
+			}
+		}
 	}
 }
 
@@ -102,16 +111,17 @@ uint16_t field::getcountofBomb()
 
 System::Void field::cell_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
 {
+	//static int f = 1;
 	cell^ c = dynamic_cast<cell^>(sender);
 	if (e->Button == System::Windows::Forms::MouseButtons::Left) {
+		if (game::firstClick == true) {
+			this->generateBomb(c);
+			game::firstClick = false;
+		}
 		if (c->getFlag() == false)
 			c->hide();
 	}
 	else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
-		if (game::firstClick == true) {
-			//тут короче прикол который поле сгенерирует вызвать
-			game::firstClick == false;
-		}
 		if (c->getFlag() == false)
 		{
 			c->setFlag(true);

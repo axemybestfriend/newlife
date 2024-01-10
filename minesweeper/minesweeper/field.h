@@ -26,7 +26,7 @@ public:
 
 	array<array<cell^>^>^ generatefield(uint16_t x, uint16_t y, uint16_t countofBomb);
 
-	void generateBomb();
+	void generateBomb(cell^);
 
 	void setx(uint16_t x);
 
