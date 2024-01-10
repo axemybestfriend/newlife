@@ -33,7 +33,6 @@ void cell::hide()
     if (*(this->isHide) == true) {
         srand(time(NULL));
         *countMineAround = rand() % 9;
-        *mine = rand() % 2;
         *(this->isHide) = false;
         this->Enabled = false;
         if (*mine == true)

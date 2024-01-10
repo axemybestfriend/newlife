@@ -34,7 +34,6 @@ public:
 	static System::Drawing::Image^ bomb() { return Bomb; }
 	static System::Drawing::Image^ redBomb() { return RedBomb; }
 
-
 };
 
 

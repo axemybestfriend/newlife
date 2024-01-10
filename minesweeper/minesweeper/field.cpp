@@ -18,8 +18,14 @@ field::~field()
 
 array<array<cell^>^>^ field::generatefield(uint16_t x, uint16_t y, uint16_t countofBomb)
 {
+	*(this->x) = x;
+	*(this->y) = y;
+	*(this->countofBomb) = countofBomb;
+
 	*countOfClosedCells = x * y;
-	this->ArrCell = gcnew array<array<cell^>^>(x);
+
+	ArrCell = gcnew array<array<cell^>^>(x);
+
 	for (int i = 0; i < x; i++) {
 		ArrCell[i] = gcnew array<cell^>(y);
 		for (int j = 0; j < y; j++) {
@@ -29,6 +35,36 @@ array<array<cell^>^>^ field::generatefield(uint16_t x, uint16_t y, uint16_t coun
 		}
 	}
     return ArrCell;
+}
+
+
+
+
+void field::generateBomb() {
+
+	int count = getcountofBomb();
+
+	srand(time(NULL));
+
+	for (int k = 0; k < count; k++)
+	{
+		int randomI, randomJ;
+		while (true)
+		{
+			bool flag = true;
+			randomI = rand() % *x;
+			randomJ = rand() % *y;
+			if (this->ArrCell[randomI][randomJ]->getMine() == true) { continue; }
+			break;
+		}
+		this->ArrCell[randomI][randomJ]->setMine(true);
+	}
+}
+
+
+
+array<array<cell^>^>^ field::getArrCell() {
+	return ArrCell;
 }
 
 
@@ -43,7 +79,7 @@ void field::sety(uint16_t y)
 
 }
 
-void field::setcpuntofBonb(uint16_t countobBomb) 
+void field::setcountofBomb(uint16_t countobBomb) 
 {
 	*(this->countofBomb) = countobBomb;
 }
@@ -63,7 +99,6 @@ uint16_t field::getcountofBomb()
 {
 	return *countofBomb;
 }
-
 
 System::Void field::cell_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
 {

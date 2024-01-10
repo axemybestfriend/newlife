@@ -42,7 +42,6 @@ namespace minesweeper {
 		}
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ Time;
-	private: 
 
 	private: System::ComponentModel::IContainer^ components;
 		/// <summary>
@@ -70,8 +69,7 @@ namespace minesweeper {
 			// Time
 			// 
 			this->Time->AutoSize = true;
-			this->Time->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->Time->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,static_cast<System::Byte>(204)));
 			this->Time->ForeColor = System::Drawing::Color::Red;
 			this->Time->Location = System::Drawing::Point(445, 9);
 			this->Time->Name = L"Time";

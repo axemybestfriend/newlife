@@ -22,13 +22,17 @@ public:
 
 	~field();
 
+	array<array<cell^>^>^ getArrCell();
+
 	array<array<cell^>^>^ generatefield(uint16_t x, uint16_t y, uint16_t countofBomb);
+
+	void generateBomb();
 
 	void setx(uint16_t x);
 
 	void sety(uint16_t y);
 
-	void setcpuntofBonb(uint16_t countobBomb);
+	void setcountofBomb(uint16_t countobBomb);
 
 	uint16_t getx();
 
