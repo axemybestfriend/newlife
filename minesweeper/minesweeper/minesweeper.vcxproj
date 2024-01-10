@@ -126,11 +126,13 @@
   <ItemGroup>
     <ClCompile Include="cell.cpp" />
     <ClCompile Include="field.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="mainform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cell.h" />
     <ClInclude Include="field.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="mainform.h">
       <FileType>CppForm</FileType>
     </ClInclude>

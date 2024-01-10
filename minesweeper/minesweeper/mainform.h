@@ -1,5 +1,6 @@
 #pragma once
 
+#include "game.h"
 #include "cell.h"
 #include "field.h"
 #include <windows.h> 
@@ -23,15 +24,9 @@ namespace minesweeper {
 		mainform(void)
 		{
 			InitializeComponent();
-			field^ a = gcnew field();
-			array<array<cell^>^>^ arr = a->generatefield(10, 10, 10);
-
-			for (int i = 0; i < 10; i++) {
-				for (int j = 0; j < 10; j++) {
-					this->Controls->Add(arr[i][j]);
-				}
-			}
 			timer1->Start();
+			game::form = this;
+			game::outputField();
 		}
 
 	protected:
@@ -47,6 +42,7 @@ namespace minesweeper {
 		}
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ Time;
+	private: 
 
 	private: System::ComponentModel::IContainer^ components;
 		/// <summary>
