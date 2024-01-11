@@ -4,7 +4,7 @@
 static struct {
 	int fieldHeight = 30;
 	int fieldWidth = 16;
-	int countOfBombs = 99;
+	int countOfBombs = 1;
 } gamemodeNormal;
 
 void game::updateField()
@@ -48,7 +48,7 @@ void game::setup()
 	game::firstClick = true;
 	form->setseconds(0);
 	form->getLabel()->Text = "000";
-	field^ tmpField = game::generatedField;
+	//field^ tmpField = game::generatedField;
 	game::updateField();
 	//for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
 	//	for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {

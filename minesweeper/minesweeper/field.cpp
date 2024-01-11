@@ -126,7 +126,6 @@ void field::openCells(cell^ pressedCell)
 					continue;
 				}
 				openCells(ArrCell[i][j]);
-
 			}
 		}
 	}
@@ -159,13 +158,14 @@ System::Void field::cell_MouseUp(System::Object^ sender, System::Windows::Forms:
 			game::firstClick = false;
 			game::startTimer();
 		}
-		if (c->getFlag() == false)
-			if (c->getMine() == true) { 
+		if (c->getFlag() == false) {
+			if (c->getMine() == true) {
 				c->BackgroundImage = resources::redBomb();
 				c->setIsHide(false);
-				game::lose(); 
+				game::lose();
 			}
 			else openCells(c);
+		}
 	}
 	else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
 		if (c->getFlag() == false)
