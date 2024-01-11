@@ -45,12 +45,4 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="resources.resx">
-      <Filter>Файлы ресурсов</Filter>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="..\..\..\..\..\Downloads\crystal\Crystal\Crysta.ttf" />
-  </ItemGroup>
 </Project>

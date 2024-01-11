@@ -143,10 +143,6 @@
       <DependentUpon>mainform.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="resources.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="..\..\..\..\..\Downloads\crystal\Crystal\Crysta.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
