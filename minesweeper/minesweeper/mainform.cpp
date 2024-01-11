@@ -13,6 +13,6 @@ void main() {
     Application::SetCompatibleTextRenderingDefault(false);
     minesweeper::mainform home;
     game::setForm(%home);
-    game::outputField();
+    game::newOutputField();
     Application::Run(%home);
 }

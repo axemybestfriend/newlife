@@ -2,14 +2,27 @@
 #include "field.h"
 
 static struct {
-	int fieldHeight = 15;
-	int fieldWidth = 8;
-	int countOfBombs = 110;
+	int fieldHeight = 30;
+	int fieldWidth = 16;
+	int countOfBombs = 99;
 } gamemodeNormal;
 
-void game::outputField()
+void game::updateField()
 {
-	game::generatedField = gcnew field();
+	array<array<cell^>^>^ arr = generatedField->getArrCell();
+	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
+		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
+			if (arr[i][j]->getMine() == true) arr[i][j]->setMine(false);
+			arr[i][j]->setCountMineAround(0);
+			arr[i][j]->setIsHide(true);
+			arr[i][j]->BackgroundImage = resources::closedCell();
+			arr[i][j]->Enabled = true;
+		}
+	}
+}
+
+void game::newOutputField()
+{
 	array<array<cell^>^>^ arr = generatedField->generatefield(gamemodeNormal.fieldHeight, gamemodeNormal.fieldWidth, gamemodeNormal.countOfBombs);
 	form->ClientSize = System::Drawing::Size(arr[0][0]->getCellSize() * gamemodeNormal.fieldHeight, arr[0][0]->getCellSize() * gamemodeNormal.fieldWidth);
 	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
@@ -35,12 +48,12 @@ void game::setup()
 	form->setseconds(0);
 	form->getLabel()->Text = "000";
 	field^ tmpField = game::generatedField;
-	game::outputField();
-	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
-		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
-			form->Controls->Remove(tmpField->getArrCell()[i][j]);
-		}
-	}
+	game::updateField();
+	//for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
+	//	for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
+	//		form->Controls->Remove(tmpField->getArrCell()[i][j]);
+	//	}
+	//}
 }
 
 void game::victory()

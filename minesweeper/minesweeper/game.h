@@ -7,22 +7,26 @@ ref class game
 {
 private:
 
-	static field^ generatedField;
+	static field^ generatedField = gcnew field();
 
 	game() {}
 
 	static minesweeper::mainform^ form = nullptr;
 
 public:
+	static bool firstClick = true;
+	
+	static void setForm(minesweeper::mainform^ form);
+	
 	static void victory();
 
 	static void lose();
 
-	static void setForm(minesweeper::mainform^ form);
 
-	static bool firstClick = true;
 
-	static void outputField();
+	static void updateField();
+
+	static void newOutputField();
 
 	static void startTimer();
 	
