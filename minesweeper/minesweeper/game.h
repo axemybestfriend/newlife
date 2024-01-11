@@ -2,6 +2,7 @@
 #include "mainform.h"
 #include "field.h"
 
+
 ref class game
 {
 private:
