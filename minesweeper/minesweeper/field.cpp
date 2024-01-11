@@ -145,6 +145,11 @@ void field::openBomb()
 	}
 }
 
+void field::setcountofClosedCells(int x)
+{
+	*countOfClosedCells = x;
+}
+
 System::Void field::cell_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
 {
 	cell^ c = dynamic_cast<cell^>(sender);

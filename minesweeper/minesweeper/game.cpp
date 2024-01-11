@@ -44,6 +44,7 @@ void game::setForm(minesweeper::mainform^ form)
 
 void game::setup()
 {
+	generatedField->setcountofClosedCells(gamemodeNormal.fieldHeight * gamemodeNormal.fieldWidth);
 	game::firstClick = true;
 	form->setseconds(0);
 	form->getLabel()->Text = "000";

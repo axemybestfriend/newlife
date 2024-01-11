@@ -43,4 +43,6 @@ public:
 	void openCells(cell^ pressedCell);
 
 	void openBomb();
+
+	void setcountofClosedCells(int);
 };
