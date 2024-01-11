@@ -41,4 +41,6 @@ public:
 	uint16_t getcountofBomb();
 
 	void openCells(cell^ pressedCell);
+
+	void openBomb();
 };

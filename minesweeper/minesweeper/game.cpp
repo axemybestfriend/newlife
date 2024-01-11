@@ -2,16 +2,16 @@
 #include "field.h"
 
 static struct {
-	int fieldHeight = 9;
-	int fieldWidth = 9;
-	int countOfBombs = 20;
+	int fieldHeight = 15;
+	int fieldWidth = 8;
+	int countOfBombs = 110;
 } gamemodeNormal;
 
 void game::outputField()
 {
 	game::generatedField = gcnew field();
 	array<array<cell^>^>^ arr = generatedField->generatefield(gamemodeNormal.fieldHeight, gamemodeNormal.fieldWidth, gamemodeNormal.countOfBombs);
-
+	form->ClientSize = System::Drawing::Size(arr[0][0]->getCellSize() * gamemodeNormal.fieldHeight, arr[0][0]->getCellSize() * gamemodeNormal.fieldWidth);
 	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
 		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
 			form->Controls->Add(arr[i][j]);
@@ -34,16 +34,18 @@ void game::setup()
 	game::firstClick = true;
 	form->setseconds(0);
 	form->getLabel()->Text = "000";
+	field^ tmpField = game::generatedField;
+	game::outputField();
 	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
 		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
-			form->Controls->Remove(game::generatedField->getArrCell()[i][j]);
+			form->Controls->Remove(tmpField->getArrCell()[i][j]);
 		}
 	}
-	game::outputField();
 }
 
 void game::victory()
 {
+	generatedField->openBomb();
 	form->getTimer()->Stop();
 	System::Windows::Forms::MessageBox::Show(System::Convert::ToString(form->getseconds()), "Победа", System::Windows::Forms::MessageBoxButtons::OK, System::Windows::Forms::MessageBoxIcon::Information);
 	setup();
@@ -51,8 +53,8 @@ void game::victory()
 
 void game::lose()
 {
+	generatedField->openBomb();
 	form->getTimer()->Stop();
 	System::Windows::Forms::MessageBox::Show("Вы прыгнули на бомбу за " + System::Convert::ToString(form->getseconds()) + " секунд, если ваши руки еще на месте можете сыграть снова", "Конец", System::Windows::Forms::MessageBoxButtons::OK, System::Windows::Forms::MessageBoxIcon::Information);
 	setup();
-
 }

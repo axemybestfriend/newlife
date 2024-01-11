@@ -34,7 +34,7 @@ void cell::hide()
         *(this->isHide) = false;
         this->Enabled = false;
         if (*mine == true)
-            this->BackgroundImage = resources::redBomb();
+            this->BackgroundImage = resources::bomb();
         else 
         {
             switch (*countMineAround) {
@@ -96,8 +96,18 @@ uint16_t cell::getCellSize()
     return cell::CellSize;
 }
 
+bool cell::getIsHide()
+{
+    return *isHide;
+}
+
 bool cell::getFlag() {
     return *flag;
+}
+
+void cell::setIsHide(bool hide)
+{
+    *isHide = hide;
 }
 
 bool cell::getMine() {

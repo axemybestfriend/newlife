@@ -122,7 +122,7 @@ void field::openCells(cell^ pressedCell)
 		for (int i = cellX - 1; i <= cellX + 1; i++) {
 			for (int j = cellY - 1; j <= cellY + 1; j++) {
 				if (i < 0 || j < 0 || i >= *(this->x) || j >= *(this->y)) continue;
-				if (*(ArrCell[i][j]->isHide) == false) {
+				if (ArrCell[i][j]->getIsHide() == false) {
 					continue;
 				}
 				openCells(ArrCell[i][j]);
@@ -134,10 +134,15 @@ void field::openCells(cell^ pressedCell)
 	if (*countOfClosedCells == *countofBomb) {
 		game::victory();
 	}
+}
 
-
-
-
+void field::openBomb()
+{
+	for (int i = 0; i < *x; i++) {
+		for (int j = 0; j < *y; j++) {
+			if (ArrCell[i][j]->getIsHide() == true && ArrCell[i][j]->getMine() == true) ArrCell[i][j]->hide();
+		}
+	}
 }
 
 System::Void field::cell_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
@@ -150,7 +155,11 @@ System::Void field::cell_MouseUp(System::Object^ sender, System::Windows::Forms:
 			game::startTimer();
 		}
 		if (c->getFlag() == false)
-			if (c->getMine() == true) game::lose();
+			if (c->getMine() == true) { 
+				c->BackgroundImage = resources::redBomb();
+				c->setIsHide(false);
+				game::lose(); 
+			}
 			else openCells(c);
 	}
 	else if (e->Button == System::Windows::Forms::MouseButtons::Right) {

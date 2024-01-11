@@ -11,13 +11,17 @@ private:
 
 	bool^ mine;
 
+	bool^ isHide;
 
 public:
-	bool^ isHide;
 	uint16_t^ countMineAround;
 	cell();
 	cell(bool mine);
 	~cell();
+
+	bool getIsHide();
+
+	void setIsHide(bool hide);
 
 	void hide();
 	
