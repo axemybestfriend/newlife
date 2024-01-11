@@ -129,10 +129,6 @@ void field::openCells(cell^ pressedCell)
 			}
 		}
 	}
-
-	if (*countOfClosedCells == *countofBomb) {
-		game::victory();
-	}
 }
 
 void field::openBomb()
@@ -165,6 +161,9 @@ System::Void field::cell_MouseUp(System::Object^ sender, System::Windows::Forms:
 				game::lose();
 			}
 			else openCells(c);
+		}
+		if (*countOfClosedCells == *countofBomb) {
+			game::victory();
 		}
 	}
 	else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
