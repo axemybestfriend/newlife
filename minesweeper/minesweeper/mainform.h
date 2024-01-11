@@ -1,8 +1,6 @@
 #pragma once
 
 #include "game.h"
-#include "cell.h"
-#include "field.h"
 #include <windows.h> 
 
 namespace minesweeper {
@@ -20,14 +18,17 @@ namespace minesweeper {
 	public ref class mainform : public System::Windows::Forms::Form
 	{
 	public:
-		int seconds = 0;
+		
 		mainform(void)
 		{
 			InitializeComponent();
-			timer1->Start();
+			//timer1->Start();
 			game::form = this;
 			game::outputField();
 		}
+
+	public: System::Windows::Forms::Timer^ getTimer() { return timer1; }
+
 
 	protected:
 		/// <summary>
@@ -40,9 +41,9 @@ namespace minesweeper {
 				delete components;
 			}
 		}
+	private: int seconds = 0;
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ Time;
-
 	private: System::ComponentModel::IContainer^ components;
 		/// <summary>
 		/// Обязательная переменная конструктора.

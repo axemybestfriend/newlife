@@ -31,7 +31,7 @@ array<array<cell^>^>^ field::generatefield(uint16_t x, uint16_t y, uint16_t coun
 		for (int j = 0; j < y; j++) {
 			ArrCell[i][j] = gcnew cell();
 			ArrCell[i][j]->Location = System::Drawing::Point(i * cell::getCellSize(), j * cell::getCellSize());
-			ArrCell[i][j]->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &field::cell_MouseDown);
+			ArrCell[i][j]->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &field::cell_MouseUp);
 		}
 	}
     return ArrCell;
@@ -57,7 +57,7 @@ void field::generateBomb(cell^ btn) {
 			bool flag = true;
 			randomI = rand() % *x;
 			randomJ = rand() % *y;
-			if ((this->ArrCell[randomI][randomJ]->getMine() == true) || (randomI == banCellX && randomJ == banCellY)) { continue; }
+			if ((this->ArrCell[randomI][randomJ]->getMine() == true) || (randomI >= (banCellX - 1) && randomI <= (banCellX + 1) && randomJ >= (banCellY - 1) && randomJ <= (banCellY + 1))) { continue; }
 			break;
 		}
 		this->ArrCell[randomI][randomJ]->setMine(true);
@@ -109,9 +109,28 @@ uint16_t field::getcountofBomb()
 	return *countofBomb;
 }
 
-System::Void field::cell_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+void field::openCells(cell^ pressedCell)
 {
-	//static int f = 1;
+	int cellX = pressedCell->Location.X / pressedCell->getCellSize();
+	int cellY = pressedCell->Location.Y / pressedCell->getCellSize();
+
+	if (pressedCell->getMine() == false) pressedCell->hide();
+	if (pressedCell->getCountMineAround() == 0 && pressedCell->getMine() == false) {
+		for (int i = cellX - 1; i <= cellX + 1; i++) {
+			for (int j = cellY - 1; j <= cellY + 1; j++) {
+				if (i < 0 || j < 0 || i >= *(this->x) || j >= *(this->y)) continue;
+				if (*(ArrCell[i][j]->isHide) == false) {
+					continue;
+				}
+				openCells(ArrCell[i][j]);
+
+			}
+		}
+	}
+}
+
+System::Void field::cell_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
 	cell^ c = dynamic_cast<cell^>(sender);
 	if (e->Button == System::Windows::Forms::MouseButtons::Left) {
 		if (game::firstClick == true) {
@@ -119,7 +138,7 @@ System::Void field::cell_MouseDown(System::Object^ sender, System::Windows::Form
 			game::firstClick = false;
 		}
 		if (c->getFlag() == false)
-			c->hide();
+			openCells(c);
 	}
 	else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
 		if (c->getFlag() == false)

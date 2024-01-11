@@ -15,7 +15,7 @@ private:
 
 	uint16_t^ countofBomb;
 
-	System::Void cell_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+	System::Void cell_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 
 public:
 	field();
@@ -39,4 +39,6 @@ public:
 	uint16_t gety();
 
 	uint16_t getcountofBomb();
+
+	void openCells(cell^ pressedCell);
 };
