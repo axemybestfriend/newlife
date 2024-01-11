@@ -114,7 +114,10 @@ void field::openCells(cell^ pressedCell)
 	int cellX = pressedCell->Location.X / pressedCell->getCellSize();
 	int cellY = pressedCell->Location.Y / pressedCell->getCellSize();
 
-	if (pressedCell->getMine() == false) pressedCell->hide();
+	if (pressedCell->getMine() == false) {
+		*countOfClosedCells -= 1;
+		pressedCell->hide();
+	}
 	if (pressedCell->getCountMineAround() == 0 && pressedCell->getMine() == false) {
 		for (int i = cellX - 1; i <= cellX + 1; i++) {
 			for (int j = cellY - 1; j <= cellY + 1; j++) {
@@ -127,6 +130,14 @@ void field::openCells(cell^ pressedCell)
 			}
 		}
 	}
+
+	if (*countOfClosedCells == *countofBomb) {
+		game::victory();
+	}
+
+
+
+
 }
 
 System::Void field::cell_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)

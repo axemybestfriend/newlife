@@ -16,13 +16,12 @@ namespace minesweeper {
 	public ref class mainform : public System::Windows::Forms::Form
 	{
 	public:
-		
+
 		mainform(void)
 		{
 			InitializeComponent();
 		}
 
-	public: System::Windows::Forms::Timer^ getTimer() { return timer1; }
 
 
 	protected:
@@ -37,6 +36,10 @@ namespace minesweeper {
 			}
 		}
 	private: int seconds = 0;
+	public: int getseconds() { return seconds; }
+	public: void setseconds(int sec) { seconds = sec; }
+	public: System::Windows::Forms::Timer^ getTimer() { return timer1; }
+	public: System::Windows::Forms::Label^ getLabel() { return Time; }
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ Time;
 	private: System::ComponentModel::IContainer^ components;
