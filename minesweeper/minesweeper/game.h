@@ -1,12 +1,9 @@
 #pragma once
 
-
 ref class game
 {
 private:
 	game() {}
-
-
 public:
 	static System::Windows::Forms::Form^ form = nullptr;
 
@@ -16,9 +13,5 @@ public:
 
 	static void outputField();
 
-	static void startTimer();
-
-	//static void setup();
+	static void setup();
 };
-
-

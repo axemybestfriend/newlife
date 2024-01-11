@@ -1,10 +1,11 @@
 #include "game.h"
 #include "field.h"
+#include "mainform.h"
 
 static struct {
 	int fieldHeight = 10;
 	int fieldWidth = 10;
-	int countOfBombs = 10;
+	int countOfBombs = 20;
 } gamemodeNormal;
 
 void game::outputField()
@@ -18,11 +19,6 @@ void game::outputField()
 			//arr[i][j]->hide();
 		}
 	}
-}
-
-void game::startTimer()
-{
-	//form->getTimer();
 }
 
 void game::setForm(System::Windows::Forms::Form^ form)
