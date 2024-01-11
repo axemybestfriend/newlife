@@ -2,9 +2,9 @@
 #include "field.h"
 
 static struct {
-	int fieldHeight = 30;
-	int fieldWidth = 16;
-	int countOfBombs = 1;
+	int fieldHeight = 9;
+	int fieldWidth = 9;
+	int countOfBombs = 9;
 } gamemodeNormal;
 
 void game::updateField()
@@ -14,6 +14,7 @@ void game::updateField()
 		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
 			if (arr[i][j]->getMine() == true) arr[i][j]->setMine(false);
 			arr[i][j]->setCountMineAround(0);
+			arr[i][j]->setFlag(false);
 			arr[i][j]->setIsHide(true);
 			arr[i][j]->BackgroundImage = resources::closedCell();
 			arr[i][j]->Enabled = true;
