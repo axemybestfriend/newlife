@@ -17,6 +17,4 @@ public:
 	static void outputField();
 
 	static void startTimer();
-
-	//static void setup();
 };
