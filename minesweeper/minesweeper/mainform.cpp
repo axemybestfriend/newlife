@@ -1,5 +1,6 @@
 #include "mainform.h"
 #include "Windows.h"
+#include "game.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -11,5 +12,7 @@ void main() {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
     minesweeper::mainform home;
-    Application::Run(% home);
+    game::setForm(%home);
+    game::outputField();
+    Application::Run(%home);
 }

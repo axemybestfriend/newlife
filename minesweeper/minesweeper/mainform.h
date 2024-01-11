@@ -1,6 +1,4 @@
 #pragma once
-
-#include "game.h"
 #include <windows.h> 
 
 namespace minesweeper {
@@ -22,9 +20,6 @@ namespace minesweeper {
 		mainform(void)
 		{
 			InitializeComponent();
-			//timer1->Start();
-			game::form = this;
-			game::outputField();
 		}
 
 	public: System::Windows::Forms::Timer^ getTimer() { return timer1; }
@@ -88,7 +83,6 @@ namespace minesweeper {
 			this->Text = L"mainform";
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
 	private: System::Void timer_Tick(System::Object^ sender, System::EventArgs^ e) {

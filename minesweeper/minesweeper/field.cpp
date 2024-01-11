@@ -136,6 +136,7 @@ System::Void field::cell_MouseUp(System::Object^ sender, System::Windows::Forms:
 		if (game::firstClick == true) {
 			this->generateBomb(c);
 			game::firstClick = false;
+			game::startTimer();
 		}
 		if (c->getFlag() == false)
 			openCells(c);

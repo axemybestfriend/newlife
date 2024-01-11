@@ -15,17 +15,16 @@ void game::outputField()
 	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
 		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
 			form->Controls->Add(arr[i][j]);
-			//arr[i][j]->hide();
 		}
 	}
 }
 
 void game::startTimer()
 {
-	//form->getTimer();
+	form->getTimer()->Start();
 }
 
-void game::setForm(System::Windows::Forms::Form^ form)
+void game::setForm(minesweeper::mainform^ form)
 {	
 	game::form = form; 
 }

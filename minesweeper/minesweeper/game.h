@@ -1,16 +1,16 @@
 #pragma once
-
+#include "mainform.h"
 
 ref class game
 {
 private:
 	game() {}
 
+	static minesweeper::mainform^ form = nullptr;
 
 public:
-	static System::Windows::Forms::Form^ form = nullptr;
 
-	static void setForm(System::Windows::Forms::Form^ form);
+	static void setForm(minesweeper::mainform^ form);
 
 	static bool firstClick = true;
 
