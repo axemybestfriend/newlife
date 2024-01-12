@@ -37,6 +37,7 @@ namespace minesweeper {
 		}
 	private: System::Windows::Forms::Label^ labelcountofbomb;
 	private: System::Windows::Forms::PictureBox^ fotomenu;
+	private: System::Windows::Forms::Button^ restartButton;
 	protected:
 
 	protected:
@@ -54,6 +55,7 @@ namespace minesweeper {
 	public: System::Windows::Forms::Label^ getLabel() { return Time; }
 	public: System::Windows::Forms::Label^ getLabelcountofbomb() { return labelcountofbomb; }
 	public: System::Windows::Forms::PictureBox^ getFotoMenu() { return fotomenu; }
+	public: System::Windows::Forms::Button^ getRestartButton() { return restartButton; }
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ Time;
 	private: System::ComponentModel::IContainer^ components;
@@ -70,10 +72,12 @@ namespace minesweeper {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(mainform::typeid));
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->Time = (gcnew System::Windows::Forms::Label());
 			this->labelcountofbomb = (gcnew System::Windows::Forms::Label());
 			this->fotomenu = (gcnew System::Windows::Forms::PictureBox());
+			this->restartButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fotomenu))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -121,11 +125,22 @@ namespace minesweeper {
 			this->fotomenu->TabIndex = 2;
 			this->fotomenu->TabStop = false;
 			// 
+			// restartButton
+			// 
+			this->restartButton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"restartButton.BackgroundImage")));
+			this->restartButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->restartButton->Location = System::Drawing::Point(214, 12);
+			this->restartButton->Name = L"restartButton";
+			this->restartButton->Size = System::Drawing::Size(50, 50);
+			this->restartButton->TabIndex = 3;
+			this->restartButton->UseVisualStyleBackColor = false;
+			// 
 			// mainform
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(500, 500);
+			this->Controls->Add(this->restartButton);
 			this->Controls->Add(this->Time);
 			this->Controls->Add(this->labelcountofbomb);
 			this->Controls->Add(this->fotomenu);

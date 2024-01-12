@@ -16,6 +16,8 @@ private:
 	static System::Drawing::Image^ Eight = System::Drawing::Image::FromFile("image\\eight.png");
 	static System::Drawing::Image^ Bomb = System::Drawing::Image::FromFile("image\\bomb.png");
 	static System::Drawing::Image^ RedBomb = System::Drawing::Image::FromFile("image\\redBomb.png");
+	static System::Drawing::Image^ RestertButton = System::Drawing::Image::FromFile("image\\restart.png");
+
 
 	resources() {}
 
@@ -33,6 +35,8 @@ public:
 	static System::Drawing::Image^ eight() { return Eight; }
 	static System::Drawing::Image^ bomb() { return Bomb; }
 	static System::Drawing::Image^ redBomb() { return RedBomb; }
+	static System::Drawing::Image^ restertButton() { return RestertButton; }
+
 
 };
 
