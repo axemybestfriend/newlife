@@ -4,7 +4,7 @@
 static struct {
 	int fieldHeight = 15;
 	int fieldWidth = 9;
-	int countOfBombs = 120;
+	int countOfBombs = 10;
 } gamemodeNormal;
 
 void game::updateField()
@@ -30,6 +30,8 @@ void game::newOutputField()
 	form->getFotoMenu()->Size = System::Drawing::Size(form->ClientSize.Width, arr[0][0]->getCellSize() * 1.5);
 	form->getLabel()->Location = System::Drawing::Point(form->ClientSize.Width - form->getLabel()->Size.Width - 15, (form->getFotoMenu()->Size.Height - form->getLabel()->Size.Height) / 2.);
 	form->getLabelcountofbomb()->Location = System::Drawing::Point(15, (form->getFotoMenu()->Size.Height - form->getLabelcountofbomb()->Size.Height) / 2.);
+	form->getRestartButton()->Location = System::Drawing::Point((form->getFotoMenu()->Size.Width - form->getRestartButton()->Size.Width) / 2., (form->getFotoMenu()->Size.Height - form->getRestartButton()->Size.Height) / 2.);
+
 
 	
 	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
