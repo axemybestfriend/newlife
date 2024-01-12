@@ -35,11 +35,23 @@ namespace minesweeper {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^ labelcountofbomb;
+	protected:
+
+	protected:
+
+	protected:
+
+
+
+
+
 	private: int seconds = 0;
 	public: int getseconds() { return seconds; }
 	public: void setseconds(int sec) { seconds = sec; }
 	public: System::Windows::Forms::Timer^ getTimer() { return timer1; }
 	public: System::Windows::Forms::Label^ getLabel() { return Time; }
+	public: System::Windows::Forms::Label^ getLabelcountofbomb() { return labelcountofbomb; }
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ Time;
 	private: System::ComponentModel::IContainer^ components;
@@ -58,6 +70,7 @@ namespace minesweeper {
 			this->components = (gcnew System::ComponentModel::Container());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->Time = (gcnew System::Windows::Forms::Label());
+			this->labelcountofbomb = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// timer1
@@ -71,17 +84,30 @@ namespace minesweeper {
 			this->Time->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->Time->ForeColor = System::Drawing::Color::Red;
-			this->Time->Location = System::Drawing::Point(445, 9);
+			this->Time->Location = System::Drawing::Point(445, 40);
 			this->Time->Name = L"Time";
 			this->Time->Size = System::Drawing::Size(43, 24);
 			this->Time->TabIndex = 0;
 			this->Time->Text = L"000";
+			// 
+			// labelcountofbomb
+			// 
+			this->labelcountofbomb->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labelcountofbomb->ForeColor = System::Drawing::Color::Red;
+			this->labelcountofbomb->Location = System::Drawing::Point(12, 40);
+			this->labelcountofbomb->Name = L"labelcountofbomb";
+			this->labelcountofbomb->Size = System::Drawing::Size(43, 24);
+			this->labelcountofbomb->TabIndex = 1;
+			this->labelcountofbomb->Text = L"000";
+			this->labelcountofbomb->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// mainform
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(500, 500);
+			this->Controls->Add(this->labelcountofbomb);
 			this->Controls->Add(this->Time);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;

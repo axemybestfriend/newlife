@@ -22,6 +22,8 @@ array<array<cell^>^>^ field::generatefield(uint16_t x, uint16_t y, uint16_t coun
 	*(this->y) = y;
 	*(this->countofBomb) = countofBomb;
 
+	game::setcountofflaggedbomb(countofBomb);
+
 	*countOfClosedCells = x * y;
 
 	ArrCell = gcnew array<array<cell^>^>(x);
@@ -113,8 +115,8 @@ void field::openCells(cell^ pressedCell)
 {
 	int cellX = pressedCell->Location.X / pressedCell->getCellSize();
 	int cellY = pressedCell->Location.Y / pressedCell->getCellSize();
-
-	if (pressedCell->getMine() == false) {
+	if (pressedCell->getFlag() == true) return;
+	if (pressedCell->getMine() == false ) {
 		*countOfClosedCells -= 1;
 		pressedCell->hide();
 	}
@@ -122,7 +124,7 @@ void field::openCells(cell^ pressedCell)
 		for (int i = cellX - 1; i <= cellX + 1; i++) {
 			for (int j = cellY - 1; j <= cellY + 1; j++) {
 				if (i < 0 || j < 0 || i >= *(this->x) || j >= *(this->y)) continue;
-				if (ArrCell[i][j]->getIsHide() == false) {
+				if (ArrCell[i][j]->getIsHide() == false ) {
 					continue;
 				}
 				openCells(ArrCell[i][j]);
@@ -169,10 +171,12 @@ System::Void field::cell_MouseUp(System::Object^ sender, System::Windows::Forms:
 	else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
 		if (c->getFlag() == false)
 		{
+			game::setcountofflaggedbomb(*game::countofflaggedbomb-1);
 			c->setFlag(true);
 		}
 		else
 		{
+			game::setcountofflaggedbomb(*game::countofflaggedbomb + 1);
 			c->setFlag(false);
 		}
 	}

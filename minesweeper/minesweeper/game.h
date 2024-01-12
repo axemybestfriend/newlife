@@ -14,6 +14,11 @@ private:
 	static minesweeper::mainform^ form = nullptr;
 
 public:
+
+	static int16_t^ countofflaggedbomb;
+
+	static void setcountofflaggedbomb(int number);
+
 	static bool firstClick = true;
 	
 	static void setForm(minesweeper::mainform^ form);
@@ -21,8 +26,6 @@ public:
 	static void victory();
 
 	static void lose();
-
-
 
 	static void updateField();
 

@@ -2,8 +2,8 @@
 #include "field.h"
 
 static struct {
-	int fieldHeight = 9;
-	int fieldWidth = 9;
+	int fieldHeight = 20;
+	int fieldWidth = 20;
 	int countOfBombs = 9;
 } gamemodeNormal;
 
@@ -24,6 +24,7 @@ void game::updateField()
 
 void game::newOutputField()
 {
+	game::countofflaggedbomb = gcnew int16_t;
 	array<array<cell^>^>^ arr = generatedField->generatefield(gamemodeNormal.fieldHeight, gamemodeNormal.fieldWidth, gamemodeNormal.countOfBombs);
 	form->ClientSize = System::Drawing::Size(arr[0][0]->getCellSize() * gamemodeNormal.fieldHeight, arr[0][0]->getCellSize() * gamemodeNormal.fieldWidth);
 	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
@@ -45,6 +46,7 @@ void game::setForm(minesweeper::mainform^ form)
 
 void game::setup()
 {
+	game::setcountofflaggedbomb(game::generatedField->getcountofBomb());
 	generatedField->setcountofClosedCells(gamemodeNormal.fieldHeight * gamemodeNormal.fieldWidth);
 	game::firstClick = true;
 	form->setseconds(0);
@@ -72,4 +74,13 @@ void game::lose()
 	form->getTimer()->Stop();
 	System::Windows::Forms::MessageBox::Show("Вы прыгнули на бомбу за " + System::Convert::ToString(form->getseconds()) + " секунд, если ваши руки еще на месте можете сыграть снова", "Конец", System::Windows::Forms::MessageBoxButtons::OK, System::Windows::Forms::MessageBoxIcon::Information);
 	setup();
+}
+
+void game::setcountofflaggedbomb(int number)
+{
+	*game::countofflaggedbomb = number;
+	if (number < 0)form->getLabelcountofbomb()->Text = System::Convert::ToString(countofflaggedbomb);
+	else if (number < 10)form->getLabelcountofbomb()->Text = "00" + System::Convert::ToString(countofflaggedbomb);
+	else if (number < 100)form->getLabelcountofbomb()->Text = "0" + System::Convert::ToString(countofflaggedbomb);
+	else if(number < 1000)form->getLabelcountofbomb()->Text = System::Convert::ToString(countofflaggedbomb);
 }
