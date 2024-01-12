@@ -32,7 +32,7 @@ array<array<cell^>^>^ field::generatefield(uint16_t x, uint16_t y, uint16_t coun
 		ArrCell[i] = gcnew array<cell^>(y);
 		for (int j = 0; j < y; j++) {
 			ArrCell[i][j] = gcnew cell();
-			ArrCell[i][j]->Location = System::Drawing::Point(i * cell::getCellSize(), j * cell::getCellSize());
+			ArrCell[i][j]->Location = System::Drawing::Point(i * cell::getCellSize(), (j + 1.5) * cell::getCellSize() );
 			ArrCell[i][j]->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &field::cell_MouseUp);
 		}
 	}
@@ -45,8 +45,16 @@ array<array<cell^>^>^ field::generatefield(uint16_t x, uint16_t y, uint16_t coun
 void field::generateBomb(cell^ btn) {
 
 	int count = getcountofBomb();
-	int banCellX = btn->Location.X / btn->getCellSize();
-	int banCellY = btn->Location.Y / btn->getCellSize();
+	int banCellX = 0;
+	int banCellY = 0;
+	int f = 1;
+	for (banCellX = 0; (banCellX < *x) && f; banCellX++) {
+		for (banCellY = 0; (banCellY < *y) && f; banCellY++) {
+			if (btn == ArrCell[banCellX][banCellY]) f = 0;
+		}
+	}
+	banCellX--;
+	banCellY--;
 
 
 	srand(time(NULL));
@@ -113,8 +121,17 @@ uint16_t field::getcountofBomb()
 
 void field::openCells(cell^ pressedCell)
 {
-	int cellX = pressedCell->Location.X / pressedCell->getCellSize();
-	int cellY = pressedCell->Location.Y / pressedCell->getCellSize();
+	int cellX = 0;
+	int cellY = 0;
+	int f = 1;
+	for (cellX = 0; (cellX < *x) && f; cellX++) {
+		for (cellY = 0; (cellY < *y) && f; cellY++) {
+			if (pressedCell == ArrCell[cellX][cellY]) f = 0;
+		}
+	}
+	cellX--;
+	cellY--;
+
 	if (pressedCell->getFlag() == true) return;
 	if (pressedCell->getMine() == false ) {
 		*countOfClosedCells -= 1;

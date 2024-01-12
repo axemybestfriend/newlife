@@ -36,6 +36,7 @@ namespace minesweeper {
 			}
 		}
 	private: System::Windows::Forms::Label^ labelcountofbomb;
+	private: System::Windows::Forms::PictureBox^ fotomenu;
 	protected:
 
 	protected:
@@ -52,6 +53,7 @@ namespace minesweeper {
 	public: System::Windows::Forms::Timer^ getTimer() { return timer1; }
 	public: System::Windows::Forms::Label^ getLabel() { return Time; }
 	public: System::Windows::Forms::Label^ getLabelcountofbomb() { return labelcountofbomb; }
+	public: System::Windows::Forms::PictureBox^ getFotoMenu() { return fotomenu; }
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ Time;
 	private: System::ComponentModel::IContainer^ components;
@@ -71,6 +73,8 @@ namespace minesweeper {
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->Time = (gcnew System::Windows::Forms::Label());
 			this->labelcountofbomb = (gcnew System::Windows::Forms::Label());
+			this->fotomenu = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fotomenu))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// timer1
@@ -81,6 +85,7 @@ namespace minesweeper {
 			// Time
 			// 
 			this->Time->AutoSize = true;
+			this->Time->BackColor = System::Drawing::Color::Black;
 			this->Time->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->Time->ForeColor = System::Drawing::Color::Red;
@@ -92,6 +97,7 @@ namespace minesweeper {
 			// 
 			// labelcountofbomb
 			// 
+			this->labelcountofbomb->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->labelcountofbomb->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->labelcountofbomb->ForeColor = System::Drawing::Color::Red;
@@ -102,18 +108,33 @@ namespace minesweeper {
 			this->labelcountofbomb->Text = L"000";
 			this->labelcountofbomb->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
+			// fotomenu
+			// 
+			this->fotomenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(195)), static_cast<System::Int32>(static_cast<System::Byte>(195)),
+				static_cast<System::Int32>(static_cast<System::Byte>(195)));
+			this->fotomenu->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->fotomenu->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->fotomenu->Location = System::Drawing::Point(0, 0);
+			this->fotomenu->Name = L"fotomenu";
+			this->fotomenu->Padding = System::Windows::Forms::Padding(50);
+			this->fotomenu->Size = System::Drawing::Size(495, 69);
+			this->fotomenu->TabIndex = 2;
+			this->fotomenu->TabStop = false;
+			// 
 			// mainform
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(500, 500);
-			this->Controls->Add(this->labelcountofbomb);
 			this->Controls->Add(this->Time);
+			this->Controls->Add(this->labelcountofbomb);
+			this->Controls->Add(this->fotomenu);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"mainform";
 			this->Text = L"mainform";
 			this->TopMost = true;
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fotomenu))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

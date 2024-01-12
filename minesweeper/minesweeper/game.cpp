@@ -2,9 +2,9 @@
 #include "field.h"
 
 static struct {
-	int fieldHeight = 20;
-	int fieldWidth = 20;
-	int countOfBombs = 9;
+	int fieldHeight = 15;
+	int fieldWidth = 9;
+	int countOfBombs = 120;
 } gamemodeNormal;
 
 void game::updateField()
@@ -26,7 +26,12 @@ void game::newOutputField()
 {
 	game::countofflaggedbomb = gcnew int16_t;
 	array<array<cell^>^>^ arr = generatedField->generatefield(gamemodeNormal.fieldHeight, gamemodeNormal.fieldWidth, gamemodeNormal.countOfBombs);
-	form->ClientSize = System::Drawing::Size(arr[0][0]->getCellSize() * gamemodeNormal.fieldHeight, arr[0][0]->getCellSize() * gamemodeNormal.fieldWidth);
+	form->ClientSize = System::Drawing::Size(arr[0][0]->getCellSize() * gamemodeNormal.fieldHeight, arr[0][0]->getCellSize() * gamemodeNormal.fieldWidth + arr[0][0]->getCellSize() * 1.5);
+	form->getFotoMenu()->Size = System::Drawing::Size(form->ClientSize.Width, arr[0][0]->getCellSize() * 1.5);
+	form->getLabel()->Location = System::Drawing::Point(form->ClientSize.Width - form->getLabel()->Size.Width - 15, (form->getFotoMenu()->Size.Height - form->getLabel()->Size.Height) / 2.);
+	form->getLabelcountofbomb()->Location = System::Drawing::Point(15, (form->getFotoMenu()->Size.Height - form->getLabelcountofbomb()->Size.Height) / 2.);
+
+	
 	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
 		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
 			form->Controls->Add(arr[i][j]);
