@@ -1,6 +1,4 @@
 #pragma once
-//#include <iostream>
-#include "game.h"
 
 typedef enum { easy, medium, hard } Gamemode;
 
@@ -8,19 +6,28 @@ class gamemode
 {
 private:
 
-	uint16_t fieldHeight;
+	int fieldHeight;
 
-	uint16_t fieldWidth;
+	int fieldWidth;
 
-	uint16_t countOfBombs;
+	int countOfBombs;
+
 public:
-	gamemode(uint16_t fieldHeight, uint16_t fieldWidth, uint16_t countOfBombs) {
-		this->fieldHeight = fieldHeight;
-		this->fieldWidth = fieldWidth;
-		this->countOfBombs = countOfBombs;
+
+	gamemode() {}
+	gamemode(int fieldHeight, int fieldWidth, int countOfBombs) {
+		setAllField(fieldHeight, fieldWidth, countOfBombs);
 	}
 
 	gamemode(Gamemode mode) {
+		setGamemode(mode);
+	}
+
+	int getFieldHeight() { return fieldHeight; }
+	int getFieldWidth() { return fieldWidth; }
+	int getCountOfBombs() { return countOfBombs; }
+
+	void setGamemode(Gamemode mode) {
 		switch (mode)
 		{
 		case Gamemode::easy:
@@ -40,8 +47,16 @@ public:
 		}
 	}
 
-	uint16_t getFieldHeight() { return fieldHeight; }
-	uint16_t getFieldWidth() { return fieldWidth; }
-	uint16_t getCountOfBombs() { return countOfBombs; }
+	void setAllField(int fieldHeight, int fieldWidth, int countOfBombs) {
+		this->fieldHeight = fieldHeight;
+		this->fieldWidth = fieldWidth;
+		this->countOfBombs = countOfBombs;
+	}
+
+	bool operator==(gamemode x) {
+		if (this->fieldHeight == x.fieldHeight && this->fieldWidth == x.fieldWidth && this->countOfBombs == x.countOfBombs)
+			return true;
+		return false;
+	}
 };
 

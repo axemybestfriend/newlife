@@ -15,7 +15,7 @@ private:
 
 	static minesweeper::mainform^ form = nullptr;
 
-
+	static gamemode* mode = nullptr;
 
 public:
 
@@ -40,6 +40,8 @@ public:
 	static void startTimer();
 	
 	static void setup();
+
+	static void setGamemode(gamemode* mode);
 
 	static void OnClick_RestartButton(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 };

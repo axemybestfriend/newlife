@@ -2,12 +2,6 @@
 #include "options.h"
 #include "field.h"
 
-static struct{
-	int fieldHeight = 30;
-	int fieldWidth = 16;
-	int countOfBombs = 99;
-} gamemodeNormal;
-
 void game::updateField()
 {
 	array<array<cell^>^>^ arr = generatedField->getArrCell();
@@ -23,21 +17,25 @@ void game::updateField()
 	}
 }
 
+
+
 void game::newOutputField()
 {
-
+	static bool flag = false;
 	game::countofflaggedbomb = gcnew int16_t;
-	array<array<cell^>^>^ arr = generatedField->generatefield(gamemodeNormal.fieldHeight, gamemodeNormal.fieldWidth, gamemodeNormal.countOfBombs);
-	form->ClientSize = System::Drawing::Size(arr[0][0]->getCellSize() * gamemodeNormal.fieldHeight, arr[0][0]->getCellSize() * gamemodeNormal.fieldWidth + arr[0][0]->getCellSize() * 1.5);
+	array<array<cell^>^>^ arr = generatedField->generatefield(mode->getFieldWidth(), mode->getFieldHeight(), mode->getCountOfBombs());
+	form->ClientSize = System::Drawing::Size(arr[0][0]->getCellSize() * mode->getFieldWidth(), arr[0][0]->getCellSize() * mode->getFieldHeight() + arr[0][0]->getCellSize() * 1.5);
 	form->getFotoMenu()->Size = System::Drawing::Size(form->ClientSize.Width, arr[0][0]->getCellSize() * 1.5);
 	form->getLabel()->Location = System::Drawing::Point(form->ClientSize.Width - form->getLabel()->Size.Width - 15, (form->getFotoMenu()->Size.Height - form->getLabel()->Size.Height) / 2.);
 	form->getLabelcountofbomb()->Location = System::Drawing::Point(15, (form->getFotoMenu()->Size.Height - form->getLabelcountofbomb()->Size.Height) / 2.);
 	form->getRestartButton()->Location = System::Drawing::Point((form->getFotoMenu()->Size.Width - form->getRestartButton()->Size.Width) / 2., (form->getFotoMenu()->Size.Height - form->getRestartButton()->Size.Height) / 2.);
-
-	form->getRestartButton()->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(&game::OnClick_RestartButton);
+	if (flag == false) {
+		form->getRestartButton()->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(&game::OnClick_RestartButton);
+		flag = true;
+	}
 	
-	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
-		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
+	for (int i = 0; i < mode->getFieldWidth(); i++) {
+		for (int j = 0; j < mode->getFieldHeight(); j++) {
 			form->Controls->Add(arr[i][j]);
 		}
 	}
@@ -62,7 +60,7 @@ void game::setup()
 {
 	form->getTimer()->Stop();
 	game::setcountofflaggedbomb(game::generatedField->getcountofBomb());
-	generatedField->setcountofClosedCells(gamemodeNormal.fieldHeight * gamemodeNormal.fieldWidth);
+	generatedField->setcountofClosedCells(generatedField->getx() * generatedField->gety());
 	game::firstClick = true;
 	form->setseconds(0);
 	form->getLabel()->Text = "000";
@@ -73,6 +71,11 @@ void game::setup()
 	//		form->Controls->Remove(tmpField->getArrCell()[i][j]);
 	//	}
 	//}
+}
+
+void game::setGamemode(gamemode* mode)
+{
+	game::mode = mode;
 }
 
 void game::victory()
@@ -104,7 +107,6 @@ void game::setcountofflaggedbomb(int number)
 
 void game::OnClick_RestartButton(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
 {
-	System::Windows::Forms::Button^ c = dynamic_cast<System::Windows::Forms::Button^>(sender);
 	if ((e->Button == System::Windows::Forms::MouseButtons::Left))
 	{
 		if (firstClick == true) return;
@@ -112,8 +114,32 @@ void game::OnClick_RestartButton(System::Object^ sender, System::Windows::Forms:
 	}
 	else if ((e->Button == System::Windows::Forms::MouseButtons::Right)) 
 	{
-		minesweeper::options^ formoptions = gcnew minesweeper::options();
+		minesweeper::options^ formoptions = gcnew minesweeper::options;
 		formoptions->ShowDialog();
-		//game::newOutputField(form)
+		
+		
+		gamemode* newMode = new gamemode;
+		if (formoptions->easy->Checked == true) {
+			newMode->setGamemode(Gamemode::easy);
+		}
+		else if (formoptions->medium->Checked == true) {
+			newMode->setGamemode(Gamemode::medium);
+		}
+		else if (formoptions->hard->Checked == true) {
+			newMode->setGamemode(Gamemode::hard);
+		}
+		else if (formoptions->special->Checked == true) {
+			newMode->setAllField(System::Convert::ToInt32(formoptions->TextBoxHeight->Text), System::Convert::ToInt32(formoptions->TextBoxWidth->Text), System::Convert::ToInt32(formoptions->TextBoxCountOfmines->Text));
+		}
+		if (*game::mode == *newMode) { delete formoptions; return; }
+		for (int i = 0; i < game::mode->getFieldWidth(); i++) {
+			for (int j = 0; j < game::mode->getFieldHeight(); j++) {
+				form->Controls->Remove(generatedField->getArrCell()[i][j]);
+			}
+		}
+		game::mode = newMode;
+		game::newOutputField();
+		game::setup();
+		delete formoptions;
 	}
 }

@@ -38,29 +38,24 @@ namespace minesweeper {
 			}
 		}
 	private: System::Windows::Forms::Button^ ok;
-	protected:
 	private: System::Windows::Forms::Button^ cancel;
 	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::RadioButton^ special;
 
-	private: System::Windows::Forms::RadioButton^ hard;
+	public: System::Windows::Forms::RadioButton^ special;
+	public: System::Windows::Forms::RadioButton^ hard;
+	public: System::Windows::Forms::RadioButton^ medium;
+	public: System::Windows::Forms::RadioButton^ easy;
 
-	private: System::Windows::Forms::RadioButton^ medium;
+	public: System::Windows::Forms::MaskedTextBox^ TextBoxHeight;
+	public: System::Windows::Forms::MaskedTextBox^ TextBoxCountOfmines;
+	public: System::Windows::Forms::MaskedTextBox^ TextBoxWidth;
 
-	private: System::Windows::Forms::RadioButton^ easy;
 	private: System::Windows::Forms::Panel^ panelOfSpecialmode;
-
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
-
-
-
 	private: System::Windows::Forms::Label^ label3;
 
 
-	private: System::Windows::Forms::MaskedTextBox^ TextBoxHeight;
-	private: System::Windows::Forms::MaskedTextBox^ TextBoxCountOfmines;
-	private: System::Windows::Forms::MaskedTextBox^ TextBoxWidth;
 
 
 	private:
