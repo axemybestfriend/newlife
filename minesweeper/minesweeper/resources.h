@@ -17,6 +17,7 @@ public:
 	static System::Drawing::Image^ Bomb = nullptr;
 	static System::Drawing::Image^ RedBomb = nullptr;
 	static System::Drawing::Image^ RestertButton = nullptr;
+	static System::Drawing::Image^ LoseButton = nullptr;
 	//static System::Drawing::Image^ CellWithFlag = System::Drawing::Image::FromFile("image\\cellWithFlag.png");
 	//static System::Drawing::Image^ EmptyCell = System::Drawing::Image::FromFile("image\\emptyCell.png");
 	//static System::Drawing::Image^ One = System::Drawing::Image::FromFile("image\\one.png");
@@ -49,6 +50,7 @@ public:
 	static System::Drawing::Image^ bomb() { return Bomb; }
 	static System::Drawing::Image^ redBomb() { return RedBomb; }
 	static System::Drawing::Image^ restertButton() { return RestertButton; }
+	static System::Drawing::Image^ loseButton() { return LoseButton; }
 
 
 };

@@ -45,4 +45,45 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="image\bomb.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\cellWithFlag.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\eight.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\emptyCell.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\five.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\four.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\one.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\redBomb.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\seven.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\six.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\three.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\two.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="image\lose.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

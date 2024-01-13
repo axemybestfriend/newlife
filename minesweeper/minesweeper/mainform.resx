@@ -124,7 +124,7 @@
   <data name="restartButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAACzZJREFUaEPtmHlUlFUfx9+XRVxJA4+IdNTKfLM6plnukZorKKBQqEgiCiiLgsgW
+        vAAADrwBlbxySQAACzZJREFUaEPtmHlUlFUfx9+XRVxJA4+IdNTKfLM6plnukZorKKBQqEgiCiiLgsgW
         +6rIvg3DFvqiaQEqSGjIDoIgm8g+mIp62kzTFJXB7/u7zwTN4FOgeU7xnv74nJm588xzf597f7977zP/
         amxsxGCnuLgYg16ESSQlJQ1ukR6JQS0iLTFoRfpKDEoRPok/FGE/+DvCJ8H4R+Svgk+C8Y9IX5IFAYj1
         24Z0gTVqsrxwrSwY31aG4VLRPpSkuiDe3wTB7lsRG+XLXX/h7Rloj43l3jc4OKLa2kbmfr8HnwTjT4sc
@@ -178,7 +178,7 @@
   <data name="cell" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAALFJREFUaEPtz7ENg0AUBFH6L+I3cz1cO4cGCcs2K9Llow0mnOBtc87VvTHGag8B
+        vgAADr4B6kKxwAAAALFJREFUaEPtz7ENg0AUBFH6L+I3cz1cO4cGCcs2K9Llow0mnOBtc87VvTHGag8B
         UVW9ISeiNeQb0Rbyj2gJUYhbCMMTUwgKxJVCUCCuFIICcaUQFIgrhaBAXCkEBeJKISgQVwpBgbhSCArE
         lUJQIK4UggJxpRAUiCuFoEBcKQQF4kohKBBXCkGBuFIICsSVQlAgrhSC3g25G57aBdIRQT+Qrgj6QDoj
         6IB0R9D2BkRVrR0wz57WIAlGqQAAAABJRU5ErkJggg==
@@ -220,5 +220,8 @@
   </data>
   <data name="two" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>image\two.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>image\lose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -2,6 +2,8 @@
 #include <windows.h> 
 #include "resources.h"
 
+
+
 namespace minesweeper {
 
 	using namespace System;
@@ -10,6 +12,7 @@ namespace minesweeper {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
 
 	/// <summary>
 	/// Сводка для mainform
@@ -22,6 +25,9 @@ namespace minesweeper {
 		{
 			InitializeComponent();
 			InitializeResources();
+			
+
+
 		}
 
 
@@ -174,7 +180,10 @@ namespace minesweeper {
 		resources::Bomb = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bomb")));
 		resources::RedBomb = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"redBomb")));
 		resources::RestertButton = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"restartButton.BackgroundImage")));
+		resources::LoseButton = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"lose")));
+
 	}
+
 	private: System::Void timer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		seconds++;
 		if (seconds < 10)Time->Text = "00" + Convert::ToString(seconds);

@@ -34,4 +34,5 @@ public:
 	static void startTimer();
 	
 	static void setup();
+	static void OnClick_RestartButton(System::Object^ sender, System::EventArgs^ e);
 };

@@ -151,6 +151,7 @@
     <Image Include="image\emptyCell.png" />
     <Image Include="image\five.png" />
     <Image Include="image\four.png" />
+    <Image Include="image\lose.png" />
     <Image Include="image\one.png" />
     <Image Include="image\redBomb.png" />
     <Image Include="image\seven.png" />

@@ -2,9 +2,9 @@
 #include "field.h"
 
 static struct {
-	int fieldHeight = 15;
-	int fieldWidth = 9;
-	int countOfBombs = 9;
+	int fieldHeight = 8;
+	int fieldWidth = 8;
+	int countOfBombs = 5;
 } gamemodeNormal;
 
 void game::updateField()
@@ -32,7 +32,7 @@ void game::newOutputField()
 	form->getLabelcountofbomb()->Location = System::Drawing::Point(15, (form->getFotoMenu()->Size.Height - form->getLabelcountofbomb()->Size.Height) / 2.);
 	form->getRestartButton()->Location = System::Drawing::Point((form->getFotoMenu()->Size.Width - form->getRestartButton()->Size.Width) / 2., (form->getFotoMenu()->Size.Height - form->getRestartButton()->Size.Height) / 2.);
 
-
+	form->getRestartButton()->Click += gcnew System::EventHandler(&game::OnClick_RestartButton);
 	
 	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
 		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
@@ -53,6 +53,7 @@ void game::setForm(minesweeper::mainform^ form)
 
 void game::setup()
 {
+	form->getTimer()->Stop();
 	game::setcountofflaggedbomb(game::generatedField->getcountofBomb());
 	generatedField->setcountofClosedCells(gamemodeNormal.fieldHeight * gamemodeNormal.fieldWidth);
 	game::firstClick = true;
@@ -79,7 +80,9 @@ void game::lose()
 {
 	generatedField->openBomb();
 	form->getTimer()->Stop();
+	form->getRestartButton()->BackgroundImage = resources::loseButton();
 	System::Windows::Forms::MessageBox::Show("Вы прыгнули на бомбу за " + System::Convert::ToString(form->getseconds()) + " секунд, если ваши руки еще на месте можете сыграть снова", "Конец", System::Windows::Forms::MessageBoxButtons::OK, System::Windows::Forms::MessageBoxIcon::Information);
+	form->getRestartButton()->BackgroundImage = resources::restertButton();
 	setup();
 }
 
@@ -90,4 +93,10 @@ void game::setcountofflaggedbomb(int number)
 	else if (number < 10)form->getLabelcountofbomb()->Text = "00" + System::Convert::ToString(countofflaggedbomb);
 	else if (number < 100)form->getLabelcountofbomb()->Text = "0" + System::Convert::ToString(countofflaggedbomb);
 	else if(number < 1000)form->getLabelcountofbomb()->Text = System::Convert::ToString(countofflaggedbomb);
+}
+
+void game::OnClick_RestartButton(System::Object^ sender, System::EventArgs^ e)
+{
+	if (firstClick == true) return;
+	setup();
 }
