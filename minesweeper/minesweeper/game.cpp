@@ -4,7 +4,7 @@
 static struct {
 	int fieldHeight = 15;
 	int fieldWidth = 9;
-	int countOfBombs = 10;
+	int countOfBombs = 9;
 } gamemodeNormal;
 
 void game::updateField()

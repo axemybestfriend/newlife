@@ -2,21 +2,34 @@
 
 
 ref class resources {
-private:
-	static System::Drawing::Image^ ClosedCell = System::Drawing::Image::FromFile("image\\cell.png");
-	static System::Drawing::Image^ CellWithFlag = System::Drawing::Image::FromFile("image\\cellWithFlag.png");
-	static System::Drawing::Image^ EmptyCell = System::Drawing::Image::FromFile("image\\emptyCell.png");
-	static System::Drawing::Image^ One = System::Drawing::Image::FromFile("image\\one.png");
-	static System::Drawing::Image^ Two = System::Drawing::Image::FromFile("image\\two.png");
-	static System::Drawing::Image^ Three = System::Drawing::Image::FromFile("image\\three.png");
-	static System::Drawing::Image^ Four = System::Drawing::Image::FromFile("image\\four.png");
-	static System::Drawing::Image^ Five = System::Drawing::Image::FromFile("image\\five.png");
-	static System::Drawing::Image^ Six = System::Drawing::Image::FromFile("image\\six.png");
-	static System::Drawing::Image^ Seven = System::Drawing::Image::FromFile("image\\seven.png");
-	static System::Drawing::Image^ Eight = System::Drawing::Image::FromFile("image\\eight.png");
-	static System::Drawing::Image^ Bomb = System::Drawing::Image::FromFile("image\\bomb.png");
-	static System::Drawing::Image^ RedBomb = System::Drawing::Image::FromFile("image\\redBomb.png");
-	static System::Drawing::Image^ RestertButton = System::Drawing::Image::FromFile("image\\restart.png");
+public:
+	static System::Drawing::Image^ ClosedCell = nullptr;
+	static System::Drawing::Image^ CellWithFlag = nullptr;
+	static System::Drawing::Image^ EmptyCell = nullptr;
+	static System::Drawing::Image^ One = nullptr;
+	static System::Drawing::Image^ Two = nullptr;
+	static System::Drawing::Image^ Three = nullptr;
+	static System::Drawing::Image^ Four = nullptr;
+	static System::Drawing::Image^ Five = nullptr;
+	static System::Drawing::Image^ Six = nullptr;
+	static System::Drawing::Image^ Seven = nullptr;
+	static System::Drawing::Image^ Eight = nullptr;
+	static System::Drawing::Image^ Bomb = nullptr;
+	static System::Drawing::Image^ RedBomb = nullptr;
+	static System::Drawing::Image^ RestertButton = nullptr;
+	//static System::Drawing::Image^ CellWithFlag = System::Drawing::Image::FromFile("image\\cellWithFlag.png");
+	//static System::Drawing::Image^ EmptyCell = System::Drawing::Image::FromFile("image\\emptyCell.png");
+	//static System::Drawing::Image^ One = System::Drawing::Image::FromFile("image\\one.png");
+	//static System::Drawing::Image^ Two = System::Drawing::Image::FromFile("image\\two.png");
+	//static System::Drawing::Image^ Three = System::Drawing::Image::FromFile("image\\three.png");
+	//static System::Drawing::Image^ Four = System::Drawing::Image::FromFile("image\\four.png");
+	//static System::Drawing::Image^ Five = System::Drawing::Image::FromFile("image\\five.png");
+	//static System::Drawing::Image^ Six = System::Drawing::Image::FromFile("image\\six.png");
+	//static System::Drawing::Image^ Seven = System::Drawing::Image::FromFile("image\\seven.png");
+	//static System::Drawing::Image^ Eight = System::Drawing::Image::FromFile("image\\eight.png");
+	//static System::Drawing::Image^ Bomb = System::Drawing::Image::FromFile("image\\bomb.png");
+	//static System::Drawing::Image^ RedBomb = System::Drawing::Image::FromFile("image\\redBomb.png");
+	//static System::Drawing::Image^ RestertButton = System::Drawing::Image::FromFile("image\\restart.png");
 
 
 	resources() {}

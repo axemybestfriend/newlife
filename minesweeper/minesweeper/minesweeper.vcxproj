@@ -144,6 +144,20 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="image\bomb.png" />
+    <Image Include="image\cellWithFlag.png" />
+    <Image Include="image\eight.png" />
+    <Image Include="image\emptyCell.png" />
+    <Image Include="image\five.png" />
+    <Image Include="image\four.png" />
+    <Image Include="image\one.png" />
+    <Image Include="image\redBomb.png" />
+    <Image Include="image\seven.png" />
+    <Image Include="image\six.png" />
+    <Image Include="image\three.png" />
+    <Image Include="image\two.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

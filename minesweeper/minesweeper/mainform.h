@@ -1,5 +1,6 @@
 #pragma once
 #include <windows.h> 
+#include "resources.h"
 
 namespace minesweeper {
 
@@ -20,6 +21,7 @@ namespace minesweeper {
 		mainform(void)
 		{
 			InitializeComponent();
+			InitializeResources();
 		}
 
 
@@ -155,6 +157,24 @@ namespace minesweeper {
 
 		}
 #pragma endregion
+
+	private: System::Void InitializeResources() {
+		System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(mainform::typeid));
+		resources::ClosedCell = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"cell")));
+		resources::EmptyCell = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"emptyCell")));
+		resources::CellWithFlag = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"cellWithFlag")));
+		resources::One = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"one")));
+		resources::Two = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"two")));
+		resources::Three = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"three")));
+		resources::Four = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"four")));
+		resources::Five = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"five")));
+		resources::Six = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"six")));
+		resources::Seven = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"seven")));
+		resources::Eight = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"eight")));
+		resources::Bomb = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bomb")));
+		resources::RedBomb = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"redBomb")));
+		resources::RestertButton = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"restartButton.BackgroundImage")));
+	}
 	private: System::Void timer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		seconds++;
 		if (seconds < 10)Time->Text = "00" + Convert::ToString(seconds);
