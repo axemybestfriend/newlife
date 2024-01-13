@@ -127,6 +127,7 @@
     <ClCompile Include="cell.cpp" />
     <ClCompile Include="field.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="gamemode.cpp" />
     <ClCompile Include="mainform.cpp" />
     <ClCompile Include="options.cpp" />
   </ItemGroup>
@@ -134,6 +135,7 @@
     <ClInclude Include="cell.h" />
     <ClInclude Include="field.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="gamemode.h" />
     <ClInclude Include="mainform.h">
       <FileType>CppForm</FileType>
     </ClInclude>

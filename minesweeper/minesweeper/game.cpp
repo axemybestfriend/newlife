@@ -2,7 +2,7 @@
 #include "options.h"
 #include "field.h"
 
-static struct {
+static struct{
 	int fieldHeight = 30;
 	int fieldWidth = 16;
 	int countOfBombs = 99;
@@ -11,8 +11,8 @@ static struct {
 void game::updateField()
 {
 	array<array<cell^>^>^ arr = generatedField->getArrCell();
-	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
-		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
+	for (int i = 0; i < generatedField->getx(); i++) {
+		for (int j = 0; j < generatedField->gety(); j++) {
 			if (arr[i][j]->getMine() == true) arr[i][j]->setMine(false);
 			arr[i][j]->setCountMineAround(0);
 			arr[i][j]->setFlag(false);
@@ -25,6 +25,7 @@ void game::updateField()
 
 void game::newOutputField()
 {
+
 	game::countofflaggedbomb = gcnew int16_t;
 	array<array<cell^>^>^ arr = generatedField->generatefield(gamemodeNormal.fieldHeight, gamemodeNormal.fieldWidth, gamemodeNormal.countOfBombs);
 	form->ClientSize = System::Drawing::Size(arr[0][0]->getCellSize() * gamemodeNormal.fieldHeight, arr[0][0]->getCellSize() * gamemodeNormal.fieldWidth + arr[0][0]->getCellSize() * 1.5);
@@ -50,6 +51,11 @@ void game::startTimer()
 void game::setForm(minesweeper::mainform^ form)
 {	
 	game::form = form; 
+}
+
+field^ game::getField()
+{
+	return game::generatedField;
 }
 
 void game::setup()
@@ -108,5 +114,6 @@ void game::OnClick_RestartButton(System::Object^ sender, System::Windows::Forms:
 	{
 		minesweeper::options^ formoptions = gcnew minesweeper::options();
 		formoptions->ShowDialog();
+		//game::newOutputField(form)
 	}
 }

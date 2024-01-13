@@ -1,6 +1,8 @@
 #pragma once
 #include "mainform.h"
 #include "field.h"
+#include "gamemode.h"
+
 
 
 ref class game
@@ -13,6 +15,8 @@ private:
 
 	static minesweeper::mainform^ form = nullptr;
 
+
+
 public:
 
 	static int16_t^ countofflaggedbomb;
@@ -22,6 +26,8 @@ public:
 	static bool firstClick = true;
 	
 	static void setForm(minesweeper::mainform^ form);
+
+	static field^ getField();
 	
 	static void victory();
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "game.h"
+
 namespace minesweeper {
 
 	using namespace System;
@@ -18,9 +20,10 @@ namespace minesweeper {
 		options(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
+			TextBoxHeight->Text = Convert::ToString(game::getField()->gety());
+			TextBoxWidth->Text = Convert::ToString(game::getField()->getx());
+			TextBoxCountOfmines->Text = Convert::ToString(game::getField()->getcountofBomb());
+
 		}
 
 	protected:
@@ -99,6 +102,7 @@ namespace minesweeper {
 			this->ok->TabIndex = 0;
 			this->ok->Text = L"Ок";
 			this->ok->UseVisualStyleBackColor = true;
+			this->ok->Click += gcnew System::EventHandler(this, &options::ok_Click);
 			// 
 			// cancel
 			// 
@@ -143,6 +147,7 @@ namespace minesweeper {
 			this->TextBoxCountOfmines->PromptChar = ' ';
 			this->TextBoxCountOfmines->Size = System::Drawing::Size(30, 20);
 			this->TextBoxCountOfmines->TabIndex = 10;
+			this->TextBoxCountOfmines->Leave += gcnew System::EventHandler(this, &options::TextBox_Leave);
 			// 
 			// TextBoxWidth
 			// 
@@ -152,6 +157,7 @@ namespace minesweeper {
 			this->TextBoxWidth->PromptChar = ' ';
 			this->TextBoxWidth->Size = System::Drawing::Size(30, 20);
 			this->TextBoxWidth->TabIndex = 9;
+			this->TextBoxWidth->Leave += gcnew System::EventHandler(this, &options::TextBox_Leave);
 			// 
 			// TextBoxHeight
 			// 
@@ -162,6 +168,7 @@ namespace minesweeper {
 			this->TextBoxHeight->PromptChar = ' ';
 			this->TextBoxHeight->Size = System::Drawing::Size(30, 20);
 			this->TextBoxHeight->TabIndex = 8;
+			this->TextBoxHeight->Leave += gcnew System::EventHandler(this, &options::TextBox_Leave);
 			// 
 			// label3
 			// 
@@ -254,6 +261,24 @@ namespace minesweeper {
 private: System::Void special_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (this->special->Checked == true)this->panelOfSpecialmode->Enabled = true;
 	else this->panelOfSpecialmode->Enabled = false;
+}
+private: System::Void TextBox_Leave(System::Object^ sender, System::EventArgs^ e) {
+	MaskedTextBox^ textBox = safe_cast<MaskedTextBox^>(sender);
+	if (TextBoxHeight->Name == textBox->Name) {
+		if (textBox->Text->Trim() == String::Empty) textBox->Text = "4";
+		else if (Convert::ToInt16(textBox->Text) < 4) textBox->Text = "4";
+		else if (Convert::ToInt16(textBox->Text) > 24) textBox->Text = "24";
+	}
+	if (TextBoxWidth->Name == textBox->Name) {
+		if (textBox->Text->Trim() == String::Empty) textBox->Text = "4";
+		else if (Convert::ToInt16(textBox->Text) < 4) textBox->Text = "4";
+		else if (Convert::ToInt16(textBox->Text) > 30) textBox->Text = "30";
+	}
+	if (TextBoxCountOfmines->Text->Trim() == String::Empty) TextBoxCountOfmines->Text = "1";
+	if (Convert::ToInt16(TextBoxCountOfmines->Text) > Convert::ToInt16(TextBoxHeight->Text) * Convert::ToInt16(TextBoxWidth->Text) - 10) TextBoxCountOfmines->Text = Convert::ToString(Convert::ToInt16(TextBoxHeight->Text) * Convert::ToInt16(TextBoxWidth->Text) - 10);
+}
+private: System::Void ok_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }
