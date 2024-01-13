@@ -1,10 +1,11 @@
 #include "game.h"
+#include "options.h"
 #include "field.h"
 
 static struct {
-	int fieldHeight = 8;
-	int fieldWidth = 8;
-	int countOfBombs = 5;
+	int fieldHeight = 30;
+	int fieldWidth = 16;
+	int countOfBombs = 99;
 } gamemodeNormal;
 
 void game::updateField()
@@ -32,7 +33,7 @@ void game::newOutputField()
 	form->getLabelcountofbomb()->Location = System::Drawing::Point(15, (form->getFotoMenu()->Size.Height - form->getLabelcountofbomb()->Size.Height) / 2.);
 	form->getRestartButton()->Location = System::Drawing::Point((form->getFotoMenu()->Size.Width - form->getRestartButton()->Size.Width) / 2., (form->getFotoMenu()->Size.Height - form->getRestartButton()->Size.Height) / 2.);
 
-	form->getRestartButton()->Click += gcnew System::EventHandler(&game::OnClick_RestartButton);
+	form->getRestartButton()->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(&game::OnClick_RestartButton);
 	
 	for (int i = 0; i < gamemodeNormal.fieldHeight; i++) {
 		for (int j = 0; j < gamemodeNormal.fieldWidth; j++) {
@@ -95,8 +96,17 @@ void game::setcountofflaggedbomb(int number)
 	else if(number < 1000)form->getLabelcountofbomb()->Text = System::Convert::ToString(countofflaggedbomb);
 }
 
-void game::OnClick_RestartButton(System::Object^ sender, System::EventArgs^ e)
+void game::OnClick_RestartButton(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
 {
-	if (firstClick == true) return;
-	setup();
+	System::Windows::Forms::Button^ c = dynamic_cast<System::Windows::Forms::Button^>(sender);
+	if ((e->Button == System::Windows::Forms::MouseButtons::Left))
+	{
+		if (firstClick == true) return;
+		setup();
+	}
+	else if ((e->Button == System::Windows::Forms::MouseButtons::Right)) 
+	{
+		minesweeper::options^ formoptions = gcnew minesweeper::options();
+		formoptions->ShowDialog();
+	}
 }

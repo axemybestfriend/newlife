@@ -156,7 +156,7 @@ namespace minesweeper {
 			this->MaximizeBox = false;
 			this->Name = L"mainform";
 			this->Text = L"mainform";
-			this->TopMost = true;
+			this->TopMost = false;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fotomenu))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();

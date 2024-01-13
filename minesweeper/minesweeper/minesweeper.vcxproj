@@ -128,6 +128,7 @@
     <ClCompile Include="field.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="mainform.cpp" />
+    <ClCompile Include="options.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cell.h" />
@@ -136,12 +137,18 @@
     <ClInclude Include="mainform.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="options.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="resources.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="mainform.resx">
       <DependentUpon>mainform.h</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="options.resx">
+      <DependentUpon>options.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

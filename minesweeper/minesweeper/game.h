@@ -34,5 +34,6 @@ public:
 	static void startTimer();
 	
 	static void setup();
-	static void OnClick_RestartButton(System::Object^ sender, System::EventArgs^ e);
+
+	static void OnClick_RestartButton(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 };
