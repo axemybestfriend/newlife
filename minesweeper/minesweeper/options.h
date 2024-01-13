@@ -77,6 +77,9 @@ namespace minesweeper {
 			this->cancel = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->panelOfSpecialmode = (gcnew System::Windows::Forms::Panel());
+			this->TextBoxCountOfmines = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->TextBoxWidth = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->TextBoxHeight = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -84,9 +87,6 @@ namespace minesweeper {
 			this->hard = (gcnew System::Windows::Forms::RadioButton());
 			this->medium = (gcnew System::Windows::Forms::RadioButton());
 			this->easy = (gcnew System::Windows::Forms::RadioButton());
-			this->TextBoxHeight = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->TextBoxWidth = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->TextBoxCountOfmines = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->panel1->SuspendLayout();
 			this->panelOfSpecialmode->SuspendLayout();
 			this->SuspendLayout();
@@ -134,6 +134,34 @@ namespace minesweeper {
 			this->panelOfSpecialmode->Name = L"panelOfSpecialmode";
 			this->panelOfSpecialmode->Size = System::Drawing::Size(167, 120);
 			this->panelOfSpecialmode->TabIndex = 4;
+			// 
+			// TextBoxCountOfmines
+			// 
+			this->TextBoxCountOfmines->Location = System::Drawing::Point(125, 80);
+			this->TextBoxCountOfmines->Mask = L"000";
+			this->TextBoxCountOfmines->Name = L"TextBoxCountOfmines";
+			this->TextBoxCountOfmines->PromptChar = ' ';
+			this->TextBoxCountOfmines->Size = System::Drawing::Size(30, 20);
+			this->TextBoxCountOfmines->TabIndex = 10;
+			// 
+			// TextBoxWidth
+			// 
+			this->TextBoxWidth->Location = System::Drawing::Point(125, 50);
+			this->TextBoxWidth->Mask = L"00";
+			this->TextBoxWidth->Name = L"TextBoxWidth";
+			this->TextBoxWidth->PromptChar = ' ';
+			this->TextBoxWidth->Size = System::Drawing::Size(30, 20);
+			this->TextBoxWidth->TabIndex = 9;
+			// 
+			// TextBoxHeight
+			// 
+			this->TextBoxHeight->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->TextBoxHeight->Location = System::Drawing::Point(125, 20);
+			this->TextBoxHeight->Mask = L"00";
+			this->TextBoxHeight->Name = L"TextBoxHeight";
+			this->TextBoxHeight->PromptChar = ' ';
+			this->TextBoxHeight->Size = System::Drawing::Size(30, 20);
+			this->TextBoxHeight->TabIndex = 8;
 			// 
 			// label3
 			// 
@@ -204,27 +232,6 @@ namespace minesweeper {
 			this->easy->TabStop = true;
 			this->easy->Text = L"Новичок\r\n10 мин \r\nполе 9 x 9 ячеек\r\n";
 			this->easy->UseVisualStyleBackColor = true;
-			// 
-			// TextBoxHeight
-			// 
-			this->TextBoxHeight->Location = System::Drawing::Point(125, 20);
-			this->TextBoxHeight->Name = L"TextBoxHeight";
-			this->TextBoxHeight->Size = System::Drawing::Size(30, 20);
-			this->TextBoxHeight->TabIndex = 8;
-			// 
-			// TextBoxWidth
-			// 
-			this->TextBoxWidth->Location = System::Drawing::Point(125, 50);
-			this->TextBoxWidth->Name = L"TextBoxWidth";
-			this->TextBoxWidth->Size = System::Drawing::Size(30, 20);
-			this->TextBoxWidth->TabIndex = 9;
-			// 
-			// TextBoxCountOfmines
-			// 
-			this->TextBoxCountOfmines->Location = System::Drawing::Point(125, 80);
-			this->TextBoxCountOfmines->Name = L"TextBoxCountOfmines";
-			this->TextBoxCountOfmines->Size = System::Drawing::Size(30, 20);
-			this->TextBoxCountOfmines->TabIndex = 10;
 			// 
 			// options
 			// 
