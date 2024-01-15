@@ -167,34 +167,38 @@ void field::setcountofClosedCells(int x)
 System::Void field::cell_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
 {
 	cell^ c = dynamic_cast<cell^>(sender);
-	if (e->Button == System::Windows::Forms::MouseButtons::Left) {
-		if (game::firstClick == true) {
-			this->generateBomb(c);
-			game::firstClick = false;
-			game::startTimer();
-		}
-		if (c->getFlag() == false) {
-			if (c->getMine() == true) {
-				c->BackgroundImage = resources::redBomb();
-				c->setIsHide(false);
-				game::lose();
+	System::Drawing::Point cursorPos = c->PointToClient(System::Windows::Forms::Control::MousePosition);
+	if (c->ClientRectangle.Contains(cursorPos))
+	{
+		if (e->Button == System::Windows::Forms::MouseButtons::Left) {
+			if (game::firstClick == true) {
+				this->generateBomb(c);
+				game::firstClick = false;
+				game::startTimer();
 			}
-			else openCells(c);
+			if (c->getFlag() == false) {
+				if (c->getMine() == true) {
+					c->BackgroundImage = resources::redBomb();
+					c->setIsHide(false);
+					game::lose();
+				}
+				else openCells(c);
+			}
+			if (*countOfClosedCells == *countofBomb) {
+				game::victory();
+			}
 		}
-		if (*countOfClosedCells == *countofBomb) {
-			game::victory();
-		}
-	}
-	else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
-		if (c->getFlag() == false)
-		{
-			game::setcountofflaggedbomb(*game::countofflaggedbomb-1);
-			c->setFlag(true);
-		}
-		else
-		{
-			game::setcountofflaggedbomb(*game::countofflaggedbomb + 1);
-			c->setFlag(false);
+		else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
+			if (c->getFlag() == false)
+			{
+				game::setcountofflaggedbomb(*game::countofflaggedbomb - 1);
+				c->setFlag(true);
+			}
+			else
+			{
+				game::setcountofflaggedbomb(*game::countofflaggedbomb + 1);
+				c->setFlag(false);
+			}
 		}
 	}
 }
