@@ -115,8 +115,8 @@ void game::OnClick_RestartButton(System::Object^ sender, System::Windows::Forms:
 	else if ((e->Button == System::Windows::Forms::MouseButtons::Right)) 
 	{
 		minesweeper::options^ formoptions = gcnew minesweeper::options;
-		formoptions->ShowDialog();
 		
+		if (formoptions->ShowDialog() != System::Windows::Forms::DialogResult::OK) return;
 		
 		gamemode* newMode = new gamemode;
 		if (formoptions->easy->Checked == true) {

@@ -107,6 +107,7 @@ namespace minesweeper {
 			this->cancel->TabIndex = 1;
 			this->cancel->Text = L"Отмена";
 			this->cancel->UseVisualStyleBackColor = true;
+			this->cancel->Click += gcnew System::EventHandler(this, &options::cancel_Click);
 			// 
 			// panel1
 			// 
@@ -273,6 +274,10 @@ private: System::Void TextBox_Leave(System::Object^ sender, System::EventArgs^ e
 	if (Convert::ToInt16(TextBoxCountOfmines->Text) > Convert::ToInt16(TextBoxHeight->Text) * Convert::ToInt16(TextBoxWidth->Text) - 10) TextBoxCountOfmines->Text = Convert::ToString(Convert::ToInt16(TextBoxHeight->Text) * Convert::ToInt16(TextBoxWidth->Text) - 10);
 }
 private: System::Void ok_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->DialogResult = System::Windows::Forms::DialogResult::OK;
+	this->Close();
+}
+private: System::Void cancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
 };
