@@ -244,6 +244,8 @@ namespace minesweeper {
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->cancel);
 			this->Controls->Add(this->ok);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->MaximizeBox = false;
 			this->Name = L"options";
 			this->Text = L"options";
 			this->panel1->ResumeLayout(false);

@@ -124,11 +124,11 @@ namespace minesweeper {
 			// 
 			this->fotomenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(195)), static_cast<System::Int32>(static_cast<System::Byte>(195)),
 				static_cast<System::Int32>(static_cast<System::Byte>(195)));
-			this->fotomenu->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->fotomenu->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->fotomenu->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->fotomenu->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->fotomenu->Location = System::Drawing::Point(0, 0);
+			this->fotomenu->Margin = System::Windows::Forms::Padding(3, 3, 3, 50);
 			this->fotomenu->Name = L"fotomenu";
-			this->fotomenu->Padding = System::Windows::Forms::Padding(50);
 			this->fotomenu->Size = System::Drawing::Size(495, 69);
 			this->fotomenu->TabIndex = 2;
 			this->fotomenu->TabStop = false;
@@ -156,7 +156,6 @@ namespace minesweeper {
 			this->MaximizeBox = false;
 			this->Name = L"mainform";
 			this->Text = L"mainform";
-			this->TopMost = false;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fotomenu))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
