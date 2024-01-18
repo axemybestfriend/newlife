@@ -82,7 +82,7 @@ void game::victory()
 {
 	generatedField->openBomb();
 	form->getTimer()->Stop();
-	System::Windows::Forms::MessageBox::Show(System::Convert::ToString(form->getseconds()), "Победа", System::Windows::Forms::MessageBoxButtons::OK, System::Windows::Forms::MessageBoxIcon::Information);
+	System::Windows::Forms::MessageBox::Show("Победа за " + System::Convert::ToString(form->getseconds()) + " секунд", "Победа", System::Windows::Forms::MessageBoxButtons::OK, System::Windows::Forms::MessageBoxIcon::Information);
 	setup();
 }
 

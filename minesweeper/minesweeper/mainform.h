@@ -155,7 +155,7 @@ namespace minesweeper {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"mainform";
-			this->Text = L"mainform";
+			this->Text = L"Сапер";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->fotomenu))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
