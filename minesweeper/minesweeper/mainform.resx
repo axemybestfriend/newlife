@@ -178,7 +178,7 @@
   <data name="cell" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAALFJREFUaEPtz7ENg0AUBFH6L+I3cz1cO4cGCcs2K9Llow0mnOBtc87VvTHGag8B
+        vQAADr0BR/uQrQAAALFJREFUaEPtz7ENg0AUBFH6L+I3cz1cO4cGCcs2K9Llow0mnOBtc87VvTHGag8B
         UVW9ISeiNeQb0Rbyj2gJUYhbCMMTUwgKxJVCUCCuFIICcaUQFIgrhaBAXCkEBeJKISgQVwpBgbhSCArE
         lUJQIK4UggJxpRAUiCuFoEBcKQQF4kohKBBXCkGBuFIICsSVQlAgrhSC3g25G57aBdIRQT+Qrgj6QDoj
         6IB0R9D2BkRVrR0wz57WIAlGqQAAAABJRU5ErkJggg==
@@ -223,5 +223,8 @@
   </data>
   <data name="lose" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>image\lose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="$this.Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\..\Desktop\pngegg.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

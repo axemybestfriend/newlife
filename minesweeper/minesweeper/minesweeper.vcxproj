@@ -154,6 +154,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\..\Desktop\pngegg.ico" />
     <Image Include="image\bomb.png" />
     <Image Include="image\cellWithFlag.png" />
     <Image Include="image\eight.png" />

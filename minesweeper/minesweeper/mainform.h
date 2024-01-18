@@ -153,6 +153,7 @@ namespace minesweeper {
 			this->Controls->Add(this->labelcountofbomb);
 			this->Controls->Add(this->fotomenu);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->Name = L"mainform";
 			this->Text = L"Сапер";
