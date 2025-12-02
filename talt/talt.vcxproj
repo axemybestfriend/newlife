@@ -134,7 +134,6 @@
     <ClCompile Include="lexer.cpp" />
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="semantic.cpp" />
-    <ClCompile Include="semantic_full.cpp" />
     <ClCompile Include="talt.cpp" />
   </ItemGroup>
   <ItemGroup>
